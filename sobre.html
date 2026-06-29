@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre — Mergulho Digital</title>
+  <meta name="description" content="Conheça o Mergulho Digital, projeto de infoprodutos com mais de 80 títulos em diversas áreas do conhecimento." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .nav-links.mobile-open {
+      display: flex !important; flex-direction: column;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97); padding: 2rem;
+      gap: 1.5rem; border-bottom: 1px solid rgba(168,85,247,0.2);
+    }
+    .nav-cta.mobile-open { display: inline-flex !important; align-self: flex-start; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="artigos.html">Ebooks</a></li>
+    <li><a href="sobre.html" class="active">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="artigos.html" class="nav-cta">Ver Catálogo</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section style="background:var(--black-soft);padding:calc(var(--nav-h) + 4rem) var(--pad) 5rem;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(27,77,74,0.4) 0%, transparent 60%)"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-eyebrow" style="color:var(--purple)">Quem somos</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.5rem">
+      O Mergulho<br><span style="color:var(--purple)">Digital</span>
+    </h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,0.6);max-width:520px;line-height:1.7">
+      Um projeto dedicado à criação de infoprodutos que realmente transformam — com conteúdo cuidadoso, design profissional e distribuição global.
+    </p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section section-white">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center" class="fade-up">
+      <div>
+        <div class="section-eyebrow">A história</div>
+        <h2 class="section-title">Nascido da <span class="accent">paixão</span> por criar</h2>
+        <p style="font-size:1rem;line-height:1.8;color:rgba(0,0,0,0.65);margin-bottom:1.5rem">
+          O Mergulho Digital nasceu da vontade de compartilhar conhecimento de forma acessível e transformadora. Com formação em arquitetura e design gráfico, o projeto une criatividade visual com conteúdo de qualidade.
+        </p>
+        <p style="font-size:1rem;line-height:1.8;color:rgba(0,0,0,0.65);margin-bottom:2rem">
+          Hoje, com mais de 80 títulos publicados em plataformas como Hotmart, Kiwify, Amazon KDP e Etsy, o Mergulho Digital leva conhecimento para leitores no Brasil e no mundo.
+        </p>
+        <a href="artigos.html" class="btn-primary" style="background:var(--teal);display:inline-flex">Ver o catálogo →</a>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--teal-dark) 0%,var(--purple-dark) 100%);border-radius:8px;height:380px;display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center;color:rgba(255,255,255,0.5);font-size:0.85rem;padding:2rem">
+          📸 Sua foto aqui<br><br>
+          <span style="font-size:0.75rem">Substitua por uma imagem sua<br>ou do seu espaço de trabalho</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-eyebrow fade-up">Números</div>
+    <h2 class="section-title fade-up" style="color:#fff">O que já <span class="accent">construímos</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem" class="fade-up">
+      <div style="text-align:center">
+        <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--purple);line-height:1">80+</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.08em">Títulos publicados</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--purple);line-height:1">4</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.08em">Plataformas</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--purple);line-height:1">2</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.08em">Idiomas</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:900;color:var(--purple);line-height:1">10+</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.08em">Categorias</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div>
+    <h2 class="section-title" style="color:#fff">Explore o catálogo</h2>
+    <p style="color:rgba(255,255,255,0.6)">Mais de 80 títulos esperando por você.</p>
+  </div>
+  <a href="artigos.html" class="btn-primary" style="white-space:nowrap;flex-shrink:0">Ver todos os Ebooks →</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
+      <p class="footer-about">Infoprodutos que transformam conhecimento em ação.</p>
+    </div>
+    <div class="footer-col"><h5>Navegação</h5><ul><li><a href="index.html">Início</a></li><li><a href="artigos.html">Catálogo</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+    <div class="footer-col"><h5>Categorias</h5><ul><li><a href="artigos.html">Inteligência Artificial</a></li><li><a href="artigos.html">Autoajuda</a></li><li><a href="artigos.html">Bem-estar</a></li><li><a href="artigos.html">English Titles</a></li></ul></div>
+    <div class="footer-col"><h5>Legal</h5><ul><li><a href="politica.html">Política de Privacidade</a></li><li><a href="termos.html">Termos de Uso</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
+    <span>mergulhodigital.com</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

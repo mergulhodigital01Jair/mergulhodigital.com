@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA para MEI — Guia Completo | Mergulho Digital</title>
+  <meta name="description" content="O guia definitivo de Inteligência Artificial para Microempreendedores. Automatize, cresça e prospere com IA." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .nav-links.mobile-open {
+      display: flex !important; flex-direction: column;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97); padding: 2rem;
+      gap: 1.5rem; border-bottom: 1px solid rgba(168,85,247,0.2);
+    }
+    .nav-cta.mobile-open { display: inline-flex !important; align-self: flex-start; }
+
+    /* ---- Sticky CTA ---- */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(10,10,10,0.95); backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(168,85,247,0.2);
+      padding: 1rem var(--pad);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta p { color: rgba(255,255,255,0.8); font-size: 0.9rem; font-weight: 500; }
+    .sticky-cta strong { color: var(--purple); }
+
+    /* ---- Testimonials ---- */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .testimonial {
+      background: rgba(255,255,255,0.06); border-radius: 8px;
+      padding: 1.5rem; border-left: 3px solid var(--purple);
+    }
+    .testimonial-text { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.75); margin-bottom: 1rem; font-style: italic; }
+    .testimonial-author { font-size: 0.8rem; color: var(--purple); font-weight: 600; }
+
+    /* ---- FAQ ---- */
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0;
+    }
+    .faq-q {
+      font-size: 1rem; font-weight: 600; color: var(--white);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      list-style: none;
+    }
+    .faq-q::after { content: '+'; color: var(--purple); font-size: 1.3rem; font-weight: 300; }
+    .faq-a { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.6); margin-top: 1rem; display: none; }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ---- Modules ---- */
+    .modules-list { display: flex; flex-direction: column; gap: 0; }
+    .module-item {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .module-num {
+      font-family: var(--font-display); font-size: 1.8rem; font-weight: 900;
+      color: rgba(168,85,247,0.3); line-height: 1; flex-shrink: 0; width: 42px;
+    }
+    .module-title { font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+    .module-desc { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    @media (max-width:768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .sticky-cta { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="artigos.html">Ebooks</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="#comprar" class="nav-cta">Quero este ebook</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ===================== SALES HERO ===================== -->
+<section class="sales-hero">
+  <div class="section-eyebrow" style="justify-content:center;margin-bottom:1rem">Lançamento 2025</div>
+  <h1 class="section-title">IA para MEI —<br><span class="accent">Guia Completo</span></h1>
+  <p class="section-desc">O primeiro guia prático de Inteligência Artificial feito especificamente para Microempreendedores Individuais. Automatize tarefas, atraia mais clientes e lucre mais — sem precisar ser técnico.</p>
+
+  <div class="sales-price-badge">
+    <span class="sales-price-orig">R$ 59,90</span>
+    <span class="sales-price-curr">R$ 29,90</span>
+    <span class="sales-price-label">pagamento único</span>
+  </div>
+
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://hotmart.com/seu-link-aqui" class="btn-primary" id="comprar" target="_blank" rel="noopener">
+      🔒 Quero o Ebook Agora →
+    </a>
+    <a href="#conteudo" class="btn-outline">Ver o conteúdo ↓</a>
+  </div>
+
+  <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase">
+    ✓ Acesso imediato &nbsp;·&nbsp; ✓ Garantia de 7 dias &nbsp;·&nbsp; ✓ Pagamento seguro
+  </p>
+</section>
+
+<!-- ===================== BENEFITS ===================== -->
+<section class="section section-white">
+  <div class="container">
+    <div class="section-eyebrow fade-up">O que você vai conquistar</div>
+    <h2 class="section-title fade-up">Resultados <span class="accent">reais</span> para o seu negócio</h2>
+
+    <div class="sales-benefits fade-up">
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">⏱️</span>
+        <h4>Economize 10h por Semana</h4>
+        <p>Aprenda a automatizar tarefas repetitivas com IA e libere tempo para o que importa.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">💬</span>
+        <h4>Atendimento 24/7</h4>
+        <p>Configure chatbots e respostas automáticas para atender clientes a qualquer hora.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">📈</span>
+        <h4>Mais Clientes, Mais Vendas</h4>
+        <p>Use IA para criar conteúdo, anúncios e estratégias que atraem e convertem.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">🎯</span>
+        <h4>Marketing Sem Agência</h4>
+        <p>Gere textos, imagens e campanhas completas sozinho com as ferramentas certas.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">📊</span>
+        <h4>Gestão Financeira IA</h4>
+        <p>Controle de despesas, análise de fluxo de caixa e previsões com auxílio de IA.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">🚀</span>
+        <h4>Escale sem Funcionários</h4>
+        <p>Ferramentas de IA que fazem o trabalho de uma equipe inteira por uma fração do custo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTENT / MODULES ===================== -->
+<section id="conteudo" class="section section-dark">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+      <div class="fade-up">
+        <div class="section-eyebrow">Conteúdo do Ebook</div>
+        <h2 class="section-title">O que está <span class="accent">dentro</span></h2>
+        <p class="section-desc" style="margin-bottom:2.5rem">Um roteiro completo e prático, do básico ao avançado, pensado para quem tem um negócio real para cuidar.</p>
+
+        <div class="modules-list">
+          <div class="module-item">
+            <div class="module-num">01</div>
+            <div><div class="module-title">Introdução à IA para Negócios</div><div class="module-desc">O que é IA, como funciona e por que todo MEI precisa conhecer.</div></div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">02</div>
+            <div><div class="module-title">As Melhores Ferramentas Gratuitas</div><div class="module-desc">ChatGPT, Gemini, Copilot — qual usar em cada situação do seu negócio.</div></div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">03</div>
+            <div><div class="module-title">Automatizando o Atendimento</div><div class="module-desc">Chatbots, respostas automáticas e IA no WhatsApp Business.</div></div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">04</div>
+            <div><div class="module-title">Marketing e Conteúdo com IA</div><div class="module-desc">Crie posts, anúncios, legendas e roteiros em minutos.</div></div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">05</div>
+            <div><div class="module-title">Gestão e Finanças Inteligentes</div><div class="module-desc">Planilhas automatizadas, análise de dados e controle financeiro com IA.</div></div>
+          </div>
+          <div class="module-item">
+            <div class="module-num">06</div>
+            <div><div class="module-title">Plano de Ação Personalizado</div><div class="module-desc">Como implementar tudo isso no seu tipo específico de negócio.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up" style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);border-radius:12px;padding:2.5rem;position:sticky;top:calc(var(--nav-h) + 1rem)">
+        <div class="section-eyebrow" style="margin-bottom:1rem">Oferta especial</div>
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;color:#fff;margin-bottom:0.5rem">IA para MEI<br>Guia Completo</h3>
+
+        <div style="display:flex;align-items:baseline;gap:8px;margin:1.5rem 0">
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.4);text-decoration:line-through">R$ 59,90</span>
+          <span style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--purple);line-height:1">R$ 29,90</span>
+        </div>
+
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem">
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px;align-items:center"><span style="color:var(--purple)">✓</span> Ebook em PDF — leitura imediata</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px;align-items:center"><span style="color:var(--purple)">✓</span> 6 módulos + bônus de prompts</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px;align-items:center"><span style="color:var(--purple)">✓</span> Acesso vitalício e atualizações</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px;align-items:center"><span style="color:var(--purple)">✓</span> Garantia incondicional de 7 dias</li>
+        </ul>
+
+        <a href="https://hotmart.com/seu-link-aqui" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" target="_blank" rel="noopener">
+          🔒 Comprar Agora — R$ 29,90
+        </a>
+
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:1rem">Pagamento processado pela Hotmart. 100% seguro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section section-teal">
+  <div class="container">
+    <div class="section-eyebrow fade-up">Depoimentos</div>
+    <h2 class="section-title fade-up" style="color:#fff">O que dizem os <span class="accent">leitores</span></h2>
+
+    <div class="testimonials-grid fade-up" style="margin-top:2.5rem">
+      <div class="testimonial">
+        <p class="testimonial-text">"Nunca pensei que conseguiria usar IA no meu negócio. Esse ebook me mostrou que qualquer MEI consegue, e mudou completamente minha rotina."</p>
+        <span class="testimonial-author">— Maria Silva, MEI no ramo de costura</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Economizei pelo menos 8 horas por semana só automatizando o atendimento pelo WhatsApp. Valeu muito mais do que o preço."</p>
+        <span class="testimonial-author">— Carlos Mendes, dono de lanchonete</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Linguagem simples, exemplos práticos. Finalmente um guia de IA que não parece de TI. Recomendo pra todo mundo que tem um negócio próprio."</p>
+        <span class="testimonial-author">— Ana Costa, prestadora de serviços</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section section-dark">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto">
+      <div class="section-eyebrow fade-up">Dúvidas frequentes</div>
+      <h2 class="section-title fade-up" style="color:#fff">Perguntas <span class="accent">respondidas</span></h2>
+
+      <div style="margin-top:2.5rem" class="fade-up">
+        <div class="faq-item open">
+          <div class="faq-q" role="button" tabindex="0">Preciso ter conhecimento de tecnologia?</div>
+          <div class="faq-a">Não. O ebook foi escrito especialmente para quem nunca usou IA antes. Tudo é explicado do zero com linguagem simples e exemplos do dia a dia de um MEI.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">Como vou receber o ebook?</div>
+          <div class="faq-a">Imediatamente após a confirmação do pagamento, você recebe um email com o link para baixar o PDF. O acesso é vitalício — você pode baixar quantas vezes quiser.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">Qual é a garantia?</div>
+          <div class="faq-a">Você tem 7 dias de garantia incondicional. Se por qualquer motivo não gostar, basta entrar em contato e devolvemos 100% do seu dinheiro. Sem perguntas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">As ferramentas de IA citadas são pagas?</div>
+          <div class="faq-a">O ebook foca em ferramentas gratuitas ou com versões gratuitas generosas, acessíveis a qualquer MEI. Há também indicações de ferramentas pagas para quem quiser avançar.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" role="button" tabindex="0">Para qual tipo de MEI esse ebook serve?</div>
+          <div class="faq-a">Para todos: prestadores de serviços, donos de comércio, artesãos, freelancers, consultores, cabeleireiros, etc. Os exemplos cobrem diversas áreas de atuação.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="section section-teal" style="text-align:center">
+  <div class="container" style="max-width:680px;margin:0 auto">
+    <div class="section-eyebrow" style="justify-content:center" class="fade-up">Hora de decidir</div>
+    <h2 class="section-title fade-up" style="color:#fff">Seu negócio na era da <span class="accent">IA</span></h2>
+    <p class="section-desc fade-up" style="color:rgba(255,255,255,0.65);margin:0 auto 2.5rem">Quem adotar IA agora vai sair na frente. Não espere mais para transformar seu MEI.</p>
+    <a href="https://hotmart.com/seu-link-aqui" class="btn-primary fade-up" style="font-size:1.1rem;padding:1rem 2.5rem;" target="_blank" rel="noopener">
+      🔒 Quero o Ebook por R$ 29,90 →
+    </a>
+    <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.4)">✓ Garantia de 7 dias &nbsp;·&nbsp; ✓ Acesso imediato &nbsp;·&nbsp; ✓ Pagamento seguro</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
+      <p class="footer-about">Infoprodutos que transformam conhecimento em ação.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="artigos.html">Catálogo</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="politica.html">Política de Privacidade</a></li>
+        <li><a href="termos.html">Termos de Uso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Suporte</h5>
+      <ul>
+        <li><a href="contato.html">Fale Conosco</a></li>
+        <li><a href="https://hotmart.com" target="_blank">Hotmart</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
+    <a href="artigos.html" style="color:rgba(255,255,255,0.4)">← Ver outros ebooks</a>
+  </div>
+</footer>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <p><strong>IA para MEI</strong> — R$ 29,90 (de R$ 59,90)</p>
+  <a href="https://hotmart.com/seu-link-aqui" class="btn-primary" target="_blank" rel="noopener" style="white-space:nowrap">🔒 Comprar Agora</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+    q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') q.click(); });
+  });
+
+  // Sticky CTA after scrolling past hero
+  const stickyCta = document.getElementById('sticky-cta');
+  let heroHeight = document.querySelector('.sales-hero')?.offsetHeight || 600;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > heroHeight) stickyCta.classList.add('show');
+    else stickyCta.classList.remove('show');
+  }, { passive: true });
+</script>
+</body>
+</html>

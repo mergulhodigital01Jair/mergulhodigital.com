@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Ebooks — Mergulho Digital</title>
+  <meta name="description" content="Explore todos os ebooks e audiobooks do Mergulho Digital. Mais de 80 títulos em autoajuda, IA, negócios, bem-estar e muito mais." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .nav-links.mobile-open {
+      display: flex !important; flex-direction: column;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97); padding: 2rem;
+      gap: 1.5rem; border-bottom: 1px solid rgba(168,85,247,0.2);
+    }
+    .nav-cta.mobile-open { display: inline-flex !important; align-self: flex-start; }
+
+    .articles-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) { .articles-full-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px) { .articles-full-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="artigos.html" class="active">Ebooks</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="artigos.html" class="nav-cta">Ver Catálogo</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="articles-page-hero">
+  <div class="container">
+    <div class="section-eyebrow">Catálogo Completo</div>
+    <h1 class="section-title" style="color:#fff">Todos os <span class="accent">Ebooks</span></h1>
+    <p class="section-desc" style="color:rgba(255,255,255,0.6)">Mais de 80 títulos em diversas áreas do conhecimento. Filtre por categoria e encontre o que você precisa.</p>
+  </div>
+</section>
+
+<!-- FILTER + GRID -->
+<section class="section section-white" style="padding-top:3rem">
+  <div class="container">
+
+    <div class="filter-bar fade-up">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="ia">Inteligência Artificial</button>
+      <button class="filter-btn" data-filter="autoajuda">Autoajuda</button>
+      <button class="filter-btn" data-filter="saude">Saúde & Bem-estar</button>
+      <button class="filter-btn" data-filter="negocios">Negócios</button>
+      <button class="filter-btn" data-filter="humor">Humor</button>
+      <button class="filter-btn" data-filter="ingles">English</button>
+      <button class="filter-btn" data-filter="infantil">Infantil</button>
+    </div>
+
+    <div class="articles-full-grid fade-up" id="articles-grid">
+
+      <!-- IA -->
+      <a href="venda-ia-mei.html" class="article-card" data-category="ia">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder"><span>🤖</span></div>
+          <span class="article-tag">Novo</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Inteligência Artificial</div>
+          <h3 class="article-title">IA para MEI — Guia Completo</h3>
+          <p class="article-desc">Tudo que um MEI precisa saber sobre IA para automatizar e escalar seu negócio.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 29,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="ia">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple"><span>⚡</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Inteligência Artificial</div>
+          <h3 class="article-title">Kit IA do Pequeno Negócio</h3>
+          <p class="article-desc">Prompts, templates e estratégias de IA para pequenos empreendedores.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 37,00</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- AUTOAJUDA -->
+      <a href="artigos.html" class="article-card" data-category="autoajuda">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple"><span>💜</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Autoajuda</div>
+          <h3 class="article-title">Amor Próprio — 30 Dias</h3>
+          <p class="article-desc">Programa completo de autoconhecimento e transformação pessoal.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 34,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="autoajuda">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder"><span>✨</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Autoajuda</div>
+          <h3 class="article-title">Destrave Seu Novo Ciclo</h3>
+          <p class="article-desc">Numerologia e afirmações para abrir portas e recomeçar com força.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 27,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="autoajuda">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple"><span>🙏</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Espiritualidade</div>
+          <h3 class="article-title">Deus, Me Ensina a Voar</h3>
+          <p class="article-desc">Uma jornada de fé e autodescoberta para elevar o espírito.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 24,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- SAÚDE -->
+      <a href="artigos.html" class="article-card" data-category="saude">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder"><span>🌙</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Bem-estar</div>
+          <h3 class="article-title">Mente em Silêncio</h3>
+          <p class="article-desc">Técnicas para controlar ansiedade noturna e dormir com tranquilidade.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 27,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="saude">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple"><span>🌸</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Saúde</div>
+          <h3 class="article-title">Menopausa sem Tabu</h3>
+          <p class="article-desc">Guia completo sobre menopausa com linguagem acessível e empoderadora.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 29,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="saude">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder"><span>👴</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Família</div>
+          <h3 class="article-title">Meus Pais Estão Envelhecendo</h3>
+          <p class="article-desc">Guia prático para famílias que cuidam de pais idosos com amor e organização.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 32,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- NEGÓCIOS -->
+      <a href="artigos.html" class="article-card" data-category="negocios">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple"><span>📱</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Negócios Digitais</div>
+          <h3 class="article-title">Cartilha do Tráfego Pago</h3>
+          <p class="article-desc">Guia completo de tráfego pago para infoprodutores que querem vender mais.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 37,00</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- HUMOR -->
+      <a href="artigos.html" class="article-card" data-category="humor">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder"><span>😂</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Humor</div>
+          <h3 class="article-title">Como Resolver Problemas com Humor — Vol. 1</h3>
+          <p class="article-desc">O primeiro volume da série de humor que já conquistou mais de 14 títulos.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 19,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ENGLISH -->
+      <a href="artigos.html" class="article-card" data-category="ingles">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple"><span>🔥</span></div>
+          <span class="article-tag">English</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Self-Help (English)</div>
+          <h3 class="article-title">Burned Out & Broke: 30-Day Reset</h3>
+          <p class="article-desc">A complete 30-day program for American women ready to reset their life and finances.</p>
+          <div class="article-footer">
+            <span class="article-price">$37.00</span>
+            <span class="article-link">Get it now</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- INFANTIL -->
+      <a href="artigos.html" class="article-card" data-category="infantil">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder"><span>🌈</span></div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Infantil / Educação</div>
+          <h3 class="article-title">Atividades para Autismo</h3>
+          <p class="article-desc">Caderno ilustrado de atividades para pais e educadores de crianças com autismo.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 24,90</span>
+            <span class="article-link">Ver produto</span>
+          </div>
+        </div>
+      </a>
+
+    </div><!-- /articles-full-grid -->
+
+    <!-- Botão para adicionar mais ebooks facilmente -->
+    <div style="text-align:center;margin-top:3rem;padding:2rem;background:#F8F7F4;border-radius:8px;border:2px dashed #E8E6E1;">
+      <p style="color:#9A9590;font-size:0.9rem;margin-bottom:0.5rem;">💡 Para adicionar novos ebooks, duplique um bloco <code>&lt;a class="article-card"&gt;</code> acima</p>
+      <p style="color:#9A9590;font-size:0.8rem;">Altere o título, descrição, categoria, preço e link de venda</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
+      <p class="footer-about">Infoprodutos que transformam conhecimento em ação.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="artigos.html">Catálogo</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Categorias</h5>
+      <ul>
+        <li><a href="#">Inteligência Artificial</a></li>
+        <li><a href="#">Autoajuda</a></li>
+        <li><a href="#">Bem-estar</a></li>
+        <li><a href="#">Humor</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Plataformas</h5>
+      <ul>
+        <li><a href="#">Hotmart</a></li>
+        <li><a href="#">Kiwify</a></li>
+        <li><a href="#">Amazon KDP</a></li>
+        <li><a href="#">Etsy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
+    <span>mergulhodigital.com</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

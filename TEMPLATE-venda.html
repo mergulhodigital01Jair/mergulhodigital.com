@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ✏️ EDITE: Título do ebook e descrição para SEO -->
+  <title>NOME DO EBOOK — Mergulho Digital</title>
+  <meta name="description" content="Descrição curta do ebook para aparecer no Google. Máximo 155 caracteres." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .nav-links.mobile-open { display:flex !important;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(10,10,10,.97);padding:2rem;gap:1.5rem;border-bottom:1px solid rgba(168,85,247,.2); }
+    .nav-cta.mobile-open { display:inline-flex !important;align-self:flex-start; }
+    .sticky-cta { position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-top:1px solid rgba(168,85,247,0.2);padding:1rem var(--pad);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;transform:translateY(100%);transition:transform 0.4s ease; }
+    .sticky-cta.show { transform:translateY(0); }
+    .sticky-cta p { color:rgba(255,255,255,0.8);font-size:0.9rem;font-weight:500; }
+    .sticky-cta strong { color:var(--purple); }
+    .testimonial { background:rgba(255,255,255,0.06);border-radius:8px;padding:1.5rem;border-left:3px solid var(--purple); }
+    .testimonial-text { font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.75);margin-bottom:1rem;font-style:italic; }
+    .testimonial-author { font-size:0.8rem;color:var(--purple);font-weight:600; }
+    .faq-item { border-bottom:1px solid rgba(255,255,255,0.1);padding:1.5rem 0; }
+    .faq-q { font-size:1rem;font-weight:600;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none; }
+    .faq-q::after { content:'+';color:var(--purple);font-size:1.3rem;font-weight:300; }
+    .faq-a { font-size:0.88rem;line-height:1.7;color:rgba(255,255,255,0.6);margin-top:1rem;display:none; }
+    .faq-item.open .faq-q::after { content:'−'; }
+    .faq-item.open .faq-a { display:block; }
+    .module-item { display:flex;gap:1.5rem;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,0.07); }
+    .module-num { font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:rgba(168,85,247,0.3);line-height:1;flex-shrink:0;width:42px; }
+    .module-title { font-weight:600;color:var(--white);margin-bottom:0.25rem; }
+    .module-desc { font-size:0.83rem;color:rgba(255,255,255,0.5);line-height:1.5; }
+    @media(max-width:768px) { .sticky-cta{flex-direction:column;text-align:center;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="artigos.html">Ebooks</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <!-- ✏️ EDITE: texto do botão -->
+    <li><a href="#comprar" class="nav-cta">Quero este ebook</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="sales-hero">
+  <!-- ✏️ EDITE: Label acima do título (ex: "Lançamento 2025", "Mais vendido") -->
+  <div class="section-eyebrow" style="justify-content:center;margin-bottom:1rem">Lançamento 2025</div>
+
+  <!-- ✏️ EDITE: Título do ebook -->
+  <h1 class="section-title">Nome do <span class="accent">Ebook</span></h1>
+
+  <!-- ✏️ EDITE: Subtítulo / promessa principal -->
+  <p class="section-desc">Descrição poderosa do que o leitor vai ganhar. Foque no resultado, não no conteúdo.</p>
+
+  <div class="sales-price-badge">
+    <!-- ✏️ EDITE: Preço riscado e preço atual -->
+    <span class="sales-price-orig">R$ 59,90</span>
+    <span class="sales-price-curr">R$ 29,90</span>
+    <span class="sales-price-label">pagamento único</span>
+  </div>
+
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <!-- ✏️ EDITE: Link de checkout da Hotmart/Kiwify -->
+    <a href="https://hotmart.com/SEU-LINK-AQUI" class="btn-primary" id="comprar" target="_blank" rel="noopener">
+      🔒 Quero o Ebook Agora →
+    </a>
+    <a href="#conteudo" class="btn-outline">Ver o conteúdo ↓</a>
+  </div>
+
+  <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase">
+    ✓ Acesso imediato &nbsp;·&nbsp; ✓ Garantia de 7 dias &nbsp;·&nbsp; ✓ Pagamento seguro
+  </p>
+</section>
+
+<!-- ===================== BENEFITS (3 ou 6 itens) ===================== -->
+<section class="section section-white">
+  <div class="container">
+    <div class="section-eyebrow fade-up">O que você vai conquistar</div>
+    <!-- ✏️ EDITE: Headline de benefícios -->
+    <h2 class="section-title fade-up">Resultados <span class="accent">reais</span></h2>
+
+    <div class="sales-benefits fade-up">
+      <!-- ✏️ DUPLIQUE ou REMOVA blocos abaixo — ideal: 3 ou 6 itens -->
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">🎯</span>
+        <h4>Benefício 1</h4>
+        <p>Descreva o resultado concreto que o leitor vai obter com este módulo/capítulo.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">⚡</span>
+        <h4>Benefício 2</h4>
+        <p>Descreva o resultado concreto que o leitor vai obter com este módulo/capítulo.</p>
+      </div>
+      <div class="sales-benefit">
+        <span class="sales-benefit-icon">💡</span>
+        <h4>Benefício 3</h4>
+        <p>Descreva o resultado concreto que o leitor vai obter com este módulo/capítulo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MODULES / SUMÁRIO ===================== -->
+<section id="conteudo" class="section section-dark">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+      <div class="fade-up">
+        <div class="section-eyebrow">Conteúdo do Ebook</div>
+        <h2 class="section-title">O que está <span class="accent">dentro</span></h2>
+        <!-- ✏️ EDITE: Frase de apoio -->
+        <p class="section-desc" style="margin-bottom:2.5rem">Descrição breve sobre o conteúdo e a abordagem do ebook.</p>
+
+        <div style="display:flex;flex-direction:column;gap:0">
+          <!-- ✏️ EDITE: Adicione/remova módulos conforme o sumário do ebook -->
+          <div class="module-item"><div class="module-num">01</div><div><div class="module-title">Título do Capítulo 1</div><div class="module-desc">Breve descrição do que é abordado neste capítulo.</div></div></div>
+          <div class="module-item"><div class="module-num">02</div><div><div class="module-title">Título do Capítulo 2</div><div class="module-desc">Breve descrição do que é abordado neste capítulo.</div></div></div>
+          <div class="module-item"><div class="module-num">03</div><div><div class="module-title">Título do Capítulo 3</div><div class="module-desc">Breve descrição do que é abordado neste capítulo.</div></div></div>
+          <div class="module-item"><div class="module-num">04</div><div><div class="module-title">Título do Capítulo 4</div><div class="module-desc">Breve descrição do que é abordado neste capítulo.</div></div></div>
+          <div class="module-item"><div class="module-num">05</div><div><div class="module-title">Título do Capítulo 5</div><div class="module-desc">Breve descrição do que é abordado neste capítulo.</div></div></div>
+        </div>
+      </div>
+
+      <!-- CARD DE COMPRA — lado direito -->
+      <div class="fade-up" style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.2);border-radius:12px;padding:2.5rem;position:sticky;top:calc(var(--nav-h) + 1rem)">
+        <div class="section-eyebrow" style="margin-bottom:1rem">Oferta especial</div>
+        <!-- ✏️ EDITE: Nome do ebook no card -->
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;color:#fff;margin-bottom:0.5rem">Nome do Ebook</h3>
+
+        <div style="display:flex;align-items:baseline;gap:8px;margin:1.5rem 0">
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.4);text-decoration:line-through">R$ 59,90</span>
+          <span style="font-family:var(--font-display);font-size:2.8rem;font-weight:700;color:var(--purple);line-height:1">R$ 29,90</span>
+        </div>
+
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem">
+          <!-- ✏️ EDITE: O que está incluído -->
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px"><span style="color:var(--purple)">✓</span> Ebook em PDF — leitura imediata</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px"><span style="color:var(--purple)">✓</span> Bônus exclusivo incluso</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px"><span style="color:var(--purple)">✓</span> Acesso vitalício</li>
+          <li style="font-size:0.85rem;color:rgba(255,255,255,0.7);display:flex;gap:8px"><span style="color:var(--purple)">✓</span> Garantia de 7 dias</li>
+        </ul>
+
+        <!-- ✏️ EDITE: Link e preço do botão -->
+        <a href="https://hotmart.com/SEU-LINK-AQUI" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;" target="_blank" rel="noopener">
+          🔒 Comprar Agora — R$ 29,90
+        </a>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:1rem">Pagamento processado pela Hotmart. 100% seguro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section section-teal">
+  <div class="container">
+    <div class="section-eyebrow fade-up">Depoimentos</div>
+    <h2 class="section-title fade-up" style="color:#fff">O que dizem os <span class="accent">leitores</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem" class="fade-up">
+      <!-- ✏️ EDITE: Substitua por depoimentos reais quando tiver -->
+      <div class="testimonial"><p class="testimonial-text">"Depoimento real do leitor aqui. Seja específico sobre o resultado obtido para ter mais credibilidade."</p><span class="testimonial-author">— Nome, profissão ou contexto</span></div>
+      <div class="testimonial"><p class="testimonial-text">"Depoimento real do leitor aqui. Seja específico sobre o resultado obtido para ter mais credibilidade."</p><span class="testimonial-author">— Nome, profissão ou contexto</span></div>
+      <div class="testimonial"><p class="testimonial-text">"Depoimento real do leitor aqui. Seja específico sobre o resultado obtido para ter mais credibilidade."</p><span class="testimonial-author">— Nome, profissão ou contexto</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section section-dark">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto">
+      <div class="section-eyebrow fade-up">Dúvidas frequentes</div>
+      <h2 class="section-title fade-up" style="color:#fff">Perguntas <span class="accent">respondidas</span></h2>
+      <div style="margin-top:2.5rem" class="fade-up">
+        <!-- ✏️ EDITE: Personalize as perguntas para cada ebook -->
+        <div class="faq-item open"><div class="faq-q" role="button" tabindex="0">Como vou receber o ebook?</div><div class="faq-a">Imediatamente após a confirmação do pagamento, você recebe um email com o link para baixar o PDF. Acesso vitalício.</div></div>
+        <div class="faq-item"><div class="faq-q" role="button" tabindex="0">Qual é a garantia?</div><div class="faq-a">7 dias de garantia incondicional. Se não gostar por qualquer motivo, devolvemos 100% do valor.</div></div>
+        <div class="faq-item"><div class="faq-q" role="button" tabindex="0">Para quem é esse ebook?</div><div class="faq-a">✏️ Descreva o perfil ideal do leitor e quem vai se beneficiar mais do conteúdo.</div></div>
+        <div class="faq-item"><div class="faq-q" role="button" tabindex="0">Posso ler no celular?</div><div class="faq-a">Sim. O PDF é otimizado para leitura em qualquer dispositivo — celular, tablet ou computador.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="section section-teal" style="text-align:center">
+  <div class="container" style="max-width:680px;margin:0 auto">
+    <h2 class="section-title fade-up" style="color:#fff">Pronto para <span class="accent">mergulhar</span>?</h2>
+    <p class="section-desc fade-up" style="color:rgba(255,255,255,0.65);margin:0 auto 2.5rem">✏️ Frase final de chamada para ação. Reforce a transformação que o leitor vai ter.</p>
+    <a href="https://hotmart.com/SEU-LINK-AQUI" class="btn-primary fade-up" style="font-size:1.1rem;padding:1rem 2.5rem;" target="_blank" rel="noopener">
+      🔒 Quero o Ebook por R$ 29,90 →
+    </a>
+    <p style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.4)">✓ Garantia de 7 dias &nbsp;·&nbsp; ✓ Acesso imediato &nbsp;·&nbsp; ✓ Pagamento seguro</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
+      <p class="footer-about">Infoprodutos que transformam conhecimento em ação.</p>
+    </div>
+    <div class="footer-col"><h5>Navegação</h5><ul><li><a href="index.html">Início</a></li><li><a href="artigos.html">Catálogo</a></li><li><a href="contato.html">Contato</a></li></ul></div>
+    <div class="footer-col"><h5>Legal</h5><ul><li><a href="politica.html">Política de Privacidade</a></li><li><a href="termos.html">Termos de Uso</a></li></ul></div>
+    <div class="footer-col"><h5>Suporte</h5><ul><li><a href="contato.html">Fale Conosco</a></li><li><a href="https://hotmart.com" target="_blank">Hotmart</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
+    <a href="artigos.html" style="color:rgba(255,255,255,0.4)">← Ver outros ebooks</a>
+  </div>
+</footer>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <!-- ✏️ EDITE: Nome e preço -->
+  <p><strong>Nome do Ebook</strong> — R$ 29,90</p>
+  <a href="https://hotmart.com/SEU-LINK-AQUI" class="btn-primary" target="_blank" rel="noopener" style="white-space:nowrap">🔒 Comprar Agora</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+    q.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') q.click(); });
+  });
+  const stickyCta = document.getElementById('sticky-cta');
+  let heroH = document.querySelector('.sales-hero')?.offsetHeight || 600;
+  window.addEventListener('scroll', () => {
+    stickyCta.classList.toggle('show', window.scrollY > heroH);
+  }, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — Mergulho Digital</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .nav-links.mobile-open { display:flex !important;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(10,10,10,.97);padding:2rem;gap:1.5rem;border-bottom:1px solid rgba(168,85,247,.2); }
+    .nav-cta.mobile-open { display:inline-flex !important;align-self:flex-start; }
+    input,textarea,select { font-family:var(--font-body); font-size:0.95rem; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      width:100%; padding:0.875rem 1rem;
+      border:1px solid var(--gray-light); border-radius:4px;
+      background:var(--white); color:var(--black);
+      transition:border-color 0.2s;
+    }
+    .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus {
+      outline:none; border-color:var(--purple);
+    }
+    .contact-form label { font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:var(--black);display:block;margin-bottom:0.4rem; }
+    .contact-form textarea { resize:vertical;min-height:120px; }
+    .form-row { display:grid;grid-template-columns:1fr 1fr;gap:1rem; }
+    @media(max-width:560px) { .form-row { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="artigos.html">Ebooks</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html" class="active">Contato</a></li>
+    <li><a href="artigos.html" class="nav-cta">Ver Catálogo</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section style="background:var(--teal-dark);padding:calc(var(--nav-h) + 3rem) var(--pad) 4rem">
+  <div class="container">
+    <div class="section-eyebrow" style="color:var(--purple)">Fale conosco</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem">Entre em <span style="color:var(--purple)">Contato</span></h1>
+    <p style="font-size:1rem;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.7">Dúvidas sobre algum produto, sugestões ou parcerias? Manda mensagem — respondemos com atenção.</p>
+  </div>
+</section>
+
+<section class="section section-off">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:4rem;align-items:start">
+
+      <!-- Formulário -->
+      <div class="fade-up">
+        <h2 class="section-title" style="font-size:1.5rem;margin-bottom:2rem">Enviar mensagem</h2>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row" style="margin-bottom:1rem">
+            <div>
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+            </div>
+          </div>
+          <div style="margin-bottom:1rem">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option value="">Selecione o assunto</option>
+              <option value="suporte">Suporte a produto</option>
+              <option value="duvida">Dúvida sobre ebook</option>
+              <option value="parceria">Parceria / Afiliação</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div style="margin-bottom:1.5rem">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Como posso te ajudar?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem">
+            Enviar Mensagem →
+          </button>
+          <p style="font-size:0.8rem;color:var(--gray-mid);margin-top:0.75rem;text-align:center">
+            Seus dados são protegidos. Leia nossa <a href="politica.html" style="color:var(--purple)">Política de Privacidade</a>.
+          </p>
+        </form>
+      </div>
+
+      <!-- Dados de contato -->
+      <div class="fade-up">
+        <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:2rem">Outras formas</h3>
+
+        <div style="display:flex;flex-direction:column;gap:1.5rem">
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🌐</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.25rem">Site</div>
+              <a href="https://mergulhodigital.com" style="color:var(--purple);font-size:0.85rem">mergulhodigital.com</a>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">📚</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.25rem">Produtos na Hotmart</div>
+              <a href="https://hotmart.com" target="_blank" style="color:var(--purple);font-size:0.85rem">hotmart.com</a>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:44px;height:44px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">📦</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.25rem">Produtos na Kiwify</div>
+              <a href="https://kiwify.com.br" target="_blank" style="color:var(--purple);font-size:0.85rem">kiwify.com.br</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:2.5rem;padding:1.5rem;background:var(--white);border-radius:8px;border-left:3px solid var(--purple)">
+          <p style="font-size:0.85rem;line-height:1.7;color:var(--gray-mid)">
+            <strong style="color:var(--black)">Tempo de resposta:</strong> normalmente respondemos em até 48 horas. Para suporte a produto adquirido na Hotmart, use o suporte da plataforma para agilidade.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
+      <p class="footer-about">Infoprodutos que transformam conhecimento em ação.</p>
+    </div>
+    <div class="footer-col"><h5>Navegação</h5><ul><li><a href="index.html">Início</a></li><li><a href="artigos.html">Catálogo</a></li><li><a href="sobre.html">Sobre</a></li></ul></div>
+    <div class="footer-col"><h5>Legal</h5><ul><li><a href="politica.html">Política de Privacidade</a></li><li><a href="termos.html">Termos de Uso</a></li></ul></div>
+    <div class="footer-col"><h5>Plataformas</h5><ul><li><a href="#">Hotmart</a></li><li><a href="#">Kiwify</a></li><li><a href="#">Amazon KDP</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
+    <span>mergulhodigital.com</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

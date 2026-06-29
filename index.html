@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mergulho Digital — Infoprodutos que Transformam</title>
+  <meta name="description" content="Ebooks, audiobooks e conteúdo digital de qualidade. Mais de 80 produtos em diversas áreas do conhecimento." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Mobile nav open state */
+    .nav-links.mobile-open {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97);
+      padding: 2rem;
+      gap: 1.5rem;
+      border-bottom: 1px solid rgba(168,85,247,0.2);
+    }
+    .nav-cta.mobile-open { display: inline-flex !important; align-self: flex-start; }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Início</a></li>
+    <li><a href="artigos.html">Ebooks</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="artigos.html" class="nav-cta">Ver Catálogo</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Mergulho Digital — Infoprodutos</div>
+    <h1 class="hero-title">
+      Conhecimento<br>
+      que <span class="accent">Transforma</span><br>
+      Vidas
+    </h1>
+    <p class="hero-sub">
+      Ebooks e audiobooks cuidadosamente criados para quem quer crescer. Mais de 80 títulos em autoajuda, negócios, tecnologia e muito mais.
+    </p>
+    <div class="hero-actions">
+      <a href="artigos.html" class="btn-primary">Explorar Catálogo →</a>
+      <a href="sobre.html" class="btn-outline">Sobre o Projeto</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">80+</div>
+      <div class="hero-stat-label">Títulos publicados</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">Plataformas</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2</div>
+      <div class="hero-stat-label">Mercados</div>
+    </div>
+  </div>
+
+  <a href="#destaques" class="hero-scroll">Rolar</a>
+</section>
+
+<!-- ===================== CATEGORIES BAND ===================== -->
+<div class="categories-band">
+  <a href="artigos.html?cat=ia" class="cat-item">
+    <span class="cat-icon">🤖</span>
+    <div class="cat-name">Inteligência Artificial</div>
+    <div class="cat-count">3 títulos</div>
+  </a>
+  <a href="artigos.html?cat=autoajuda" class="cat-item">
+    <span class="cat-icon">🌱</span>
+    <div class="cat-name">Autoajuda</div>
+    <div class="cat-count">12 títulos</div>
+  </a>
+  <a href="artigos.html?cat=negocios" class="cat-item">
+    <span class="cat-icon">💼</span>
+    <div class="cat-name">Negócios Digitais</div>
+    <div class="cat-count">8 títulos</div>
+  </a>
+  <a href="artigos.html?cat=saude" class="cat-item">
+    <span class="cat-icon">💜</span>
+    <div class="cat-name">Saúde & Bem-estar</div>
+    <div class="cat-count">10 títulos</div>
+  </a>
+  <a href="artigos.html?cat=ingles" class="cat-item">
+    <span class="cat-icon">🌎</span>
+    <div class="cat-name">English Titles</div>
+    <div class="cat-count">6 títulos</div>
+  </a>
+  <a href="artigos.html?cat=humor" class="cat-item">
+    <span class="cat-icon">😄</span>
+    <div class="cat-name">Humor</div>
+    <div class="cat-count">14 títulos</div>
+  </a>
+</div>
+
+<!-- ===================== DESTAQUES ===================== -->
+<section id="destaques" class="section section-dark">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-eyebrow">Lançamentos em Destaque</div>
+      <h2 class="section-title">Os mais <span class="accent">procurados</span></h2>
+    </div>
+
+    <div class="featured-grid fade-up" style="margin-top:3rem">
+      <div class="featured-main">
+        <div class="featured-main-bg"></div>
+        <div class="section-eyebrow">Lançamento</div>
+        <h3 class="section-title">IA para MEI</h3>
+        <p class="section-desc">O guia completo de Inteligência Artificial para Microempreendedores Individuais. Automatize, cresça e prospere com IA.</p>
+        <a href="venda-ia-mei.html" class="btn-primary" style="align-self:flex-start;">Ver produto →</a>
+      </div>
+      <div class="featured-side">
+        <a href="artigos.html" class="featured-card">
+          <div class="article-category">Autoajuda</div>
+          <h4 class="article-title">Amor Próprio — O Guia Completo</h4>
+          <p class="article-desc">Um mergulho profundo no autoconhecimento e na construção de uma vida com mais amor e propósito.</p>
+        </a>
+        <a href="artigos.html" class="featured-card">
+          <div class="article-category">Bem-estar</div>
+          <h4 class="article-title">Mente em Silêncio</h4>
+          <p class="article-desc">Técnicas comprovadas para controlar a ansiedade noturna e dormir com tranquilidade.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTICLES PREVIEW ===================== -->
+<section class="section section-white">
+  <div class="container">
+    <div class="articles-header fade-up">
+      <div>
+        <div class="section-eyebrow">Catálogo</div>
+        <h2 class="section-title">Nossos <span class="accent">Ebooks</span></h2>
+      </div>
+      <a href="artigos.html" class="btn-outline" style="border-color:#1B4D4A;color:#1B4D4A;white-space:nowrap;">Ver todos →</a>
+    </div>
+
+    <div class="articles-grid fade-up">
+
+      <a href="venda-ia-mei.html" class="article-card" data-category="ia">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder">
+            <span>🤖</span>
+          </div>
+          <span class="article-tag">Novo</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Inteligência Artificial</div>
+          <h3 class="article-title">IA para MEI — Guia Completo</h3>
+          <p class="article-desc">Tudo que um MEI precisa saber sobre IA para automatizar e escalar seu negócio.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 29,90</span>
+            <span class="article-link">Adquirir</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="autoajuda">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder purple">
+            <span>💜</span>
+          </div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Autoajuda</div>
+          <h3 class="article-title">Amor Próprio — 30 Dias de Transformação</h3>
+          <p class="article-desc">Um programa completo para se reencontrar e construir uma relação saudável consigo mesmo.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 34,90</span>
+            <span class="article-link">Adquirir</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="artigos.html" class="article-card" data-category="saude">
+        <div class="article-img-wrap">
+          <div class="article-img-placeholder">
+            <span>🌙</span>
+          </div>
+        </div>
+        <div class="article-body">
+          <div class="article-category">Bem-estar</div>
+          <h3 class="article-title">Mente em Silêncio</h3>
+          <p class="article-desc">Ansiedade noturna, insônia e pensamentos acelerados — aprenda a silenciar a mente.</p>
+          <div class="article-footer">
+            <span class="article-price">R$ 27,90</span>
+            <span class="article-link">Adquirir</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT STRIP ===================== -->
+<section class="section section-off">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <div class="about-img-main">
+          <div class="about-img-placeholder">📚<br><br>Sua imagem aqui</div>
+        </div>
+        <div class="about-img-accent">
+          <div class="about-img-placeholder" style="color:rgba(255,255,255,0.6);font-size:0.75rem;">Imagem accent</div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="section-eyebrow">Sobre o projeto</div>
+        <h2 class="section-title">Criado com <span class="accent">propósito</span></h2>
+        <p class="section-desc">O Mergulho Digital nasceu da paixão por compartilhar conhecimento de forma acessível e transformadora. Cada ebook é desenvolvido com cuidado para gerar resultado real.</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="about-feat-icon">📖</div>
+            <div>
+              <h4>Conteúdo de Qualidade</h4>
+              <p>Cada título é pesquisado, escrito e revisado com atenção ao detalhe para entregar valor real ao leitor.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">🎧</div>
+            <div>
+              <h4>Versões em Audiobook</h4>
+              <p>Os principais títulos também estão disponíveis em formato de áudio, para aprender em qualquer lugar.</p>
+            </div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">🌍</div>
+            <div>
+              <h4>Alcance Global</h4>
+              <p>Produtos disponíveis em Hotmart, Kiwify, Amazon KDP e Etsy — em português e inglês.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BAND ===================== -->
+<div class="cta-band fade-up">
+  <div>
+    <h2 class="section-title">Pronto para <span class="accent">mergulhar</span>?</h2>
+    <p>Explore o catálogo completo e encontre o ebook certo para você.</p>
+  </div>
+  <a href="artigos.html" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">Ver Catálogo Completo →</a>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
+      <p class="footer-about">Infoprodutos que transformam conhecimento em ação. Ebooks e audiobooks em diversas áreas do saber.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="artigos.html">Catálogo</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Categorias</h5>
+      <ul>
+        <li><a href="artigos.html?cat=ia">Inteligência Artificial</a></li>
+        <li><a href="artigos.html?cat=autoajuda">Autoajuda</a></li>
+        <li><a href="artigos.html?cat=negocios">Negócios</a></li>
+        <li><a href="artigos.html?cat=saude">Bem-estar</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Links Úteis</h5>
+      <ul>
+        <li><a href="#">Hotmart</a></li>
+        <li><a href="#">Kiwify</a></li>
+        <li><a href="#">Amazon KDP</a></li>
+        <li><a href="politica.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
+    <span>mergulhodigital.com</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
