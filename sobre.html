@@ -188,14 +188,15 @@
   .page-hero p{color:var(--ink-soft);font-size:17px;max-width:560px;}
 
   .story{padding:88px 0;}
-  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-  .story p{font-size:15.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
-  .photo-placeholder{
-    background:linear-gradient(135deg,var(--ink) 0%, var(--violet-deep) 100%);
-    border-radius:var(--radius);height:210px;display:flex;align-items:flex-end;justify-content:center;
-    color:rgba(255,255,255,0.75);text-align:center;font-size:14px;padding:0;overflow:hidden;
+  .story .wrap{max-width:720px;}
+  .author-byline{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
+  .author-byline img{
+    width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top center;
+    border:2px solid var(--paper);box-shadow:0 4px 14px rgba(22,48,44,0.15);
   }
-  .photo-placeholder img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block;}
+  .author-byline .name{font-weight:700;font-size:15px;color:var(--ink);}
+  .author-byline .role{font-size:13px;color:var(--ink-soft);}
+  .story p{font-size:15.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
   .cta-band{
     background:var(--ink);color:#fff;border-radius:24px;padding:48px 56px;
     display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
@@ -301,16 +302,18 @@
 
 <section class="story">
   <div class="wrap reveal">
-    <div>
-      <div class="eyebrow">A história</div>
-      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;margin-bottom:20px;">Nascido da <span style="color:var(--violet)">paixão</span> por criar</h2>
-      <p>O Mergulho Digital nasceu da vontade de compartilhar conhecimento de forma acessível e transformadora. Com formação em arquitetura e design gráfico, o projeto une criatividade visual com conteúdo de qualidade.</p>
-      <p>Cada ebook é pensado para ser prático e direto — feito para quem quer aplicar o que aprende no mesmo dia, não só acumular teoria.</p>
-      <a href="artigos.html" class="btn btn-primary">Ver o catálogo</a>
+    <div class="eyebrow">A história</div>
+    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;margin-bottom:28px;">Nascido da <span style="color:var(--violet)">paixão</span> por criar</h2>
+    <div class="author-byline">
+      <img src="assets/jair-photo.png" alt="Foto de J Barreto">
+      <div>
+        <div class="name">J Barreto</div>
+        <div class="role">Criador da Mergulho Digital</div>
+      </div>
     </div>
-    <div class="photo-placeholder">
-      <img src="assets/jair-photo.png" alt="Foto de J Barreto, criador da Mergulho Digital">
-    </div>
+    <p>O Mergulho Digital nasceu da vontade de compartilhar conhecimento de forma acessível e transformadora. Com formação em arquitetura e design gráfico, o projeto une criatividade visual com conteúdo de qualidade.</p>
+    <p>Cada ebook é pensado para ser prático e direto — feito para quem quer aplicar o que aprende no mesmo dia, não só acumular teoria.</p>
+    <a href="artigos.html" class="btn btn-primary">Ver o catálogo</a>
   </div>
 </section>
 
