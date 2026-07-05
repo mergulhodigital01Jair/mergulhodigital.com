@@ -189,13 +189,16 @@
 
   .story{padding:88px 0;}
   .story .wrap{max-width:720px;}
-  .author-byline{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
+  .author-byline{display:flex;align-items:center;gap:16px;margin-bottom:32px;justify-content:space-between;flex-wrap:wrap;}
+  .author-byline-info{display:flex;align-items:center;gap:16px;}
   .author-byline img{
     width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top center;
     border:2px solid var(--paper);box-shadow:0 4px 14px rgba(22,48,44,0.15);
   }
   .author-byline .name{font-weight:700;font-size:15px;color:var(--ink);}
   .author-byline .role{font-size:13px;color:var(--ink-soft);}
+  .whale-egg{width:130px;flex-shrink:0;cursor:pointer;border-radius:14px;overflow:hidden;}
+  .whale-egg video{width:100%;display:block;}
   .story p{font-size:15.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
   .cta-band{
     background:var(--ink);color:#fff;border-radius:24px;padding:48px 56px;
@@ -305,10 +308,17 @@
     <div class="eyebrow">A história</div>
     <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;margin-bottom:28px;">Nascido da <span style="color:var(--violet)">paixão</span> por criar</h2>
     <div class="author-byline">
-      <img src="assets/jair-photo.png" alt="Foto de J Barreto">
-      <div>
-        <div class="name">J Barreto</div>
-        <div class="role">Criador da Mergulho Digital</div>
+      <div class="author-byline-info">
+        <img src="assets/jair-photo.png" alt="Foto de J Barreto">
+        <div>
+          <div class="name">J Barreto</div>
+          <div class="role">Criador da Mergulho Digital</div>
+        </div>
+      </div>
+      <div class="whale-egg" title="Passa o mouse na baleia">
+        <video muted loop playsinline poster="assets/whale-poster.jpg">
+          <source src="assets/whale-splash.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
     <p>O Mergulho Digital nasceu da vontade de compartilhar conhecimento de forma acessível e transformadora. Com formação em arquitetura e design gráfico, o projeto une criatividade visual com conteúdo de qualidade.</p>
@@ -362,6 +372,13 @@
 
   document.querySelectorAll('.burger').forEach(b=>{
     b.addEventListener('click', ()=> document.querySelector('.nav-links').classList.toggle('nav-open'));
+  });
+
+  document.querySelectorAll('.whale-egg video').forEach(v=>{
+    const wrap = v.closest('.whale-egg');
+    wrap.addEventListener('mouseenter', ()=> v.play());
+    wrap.addEventListener('mouseleave', ()=>{ v.pause(); v.currentTime = 0; });
+    wrap.addEventListener('touchstart', ()=> v.play(), {passive:true});
   });
 </script>
 
