@@ -1,315 +1,329 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mergulho Digital — Infoprodutos que Transformam</title>
-  <meta name="description" content="Ebooks, audiobooks e conteúdo digital de qualidade. Mais de 80 produtos em diversas áreas do conhecimento." />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Mobile nav open state */
-    .nav-links.mobile-open {
-      display: flex !important;
-      flex-direction: column;
-      position: fixed;
-      top: 72px; left: 0; right: 0;
-      background: rgba(10,10,10,0.97);
-      padding: 2rem;
-      gap: 1.5rem;
-      border-bottom: 1px solid rgba(168,85,247,0.2);
-    }
-    .nav-cta.mobile-open { display: inline-flex !important; align-self: flex-start; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mergulho Digital — Conhecimento que Transforma</title>
+<meta name="description" content="Ebooks e ferramentas práticas para quem quer aprender, aplicar e crescer. Conheça o IA para MEI: venda mais usando IA, sem contratar equipe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F0;
+    --paper:#FFFFFF;
+    --ink:#16302C;
+    --ink-soft:#3E5652;
+    --violet:#7C3AED;
+    --violet-deep:#5B21B6;
+    --lilac:#F3EEFC;
+    --line:#E9E2D6;
+    --gold:#B8935A;
+    --radius:18px;
+    --shadow:0 20px 45px -20px rgba(22,48,44,0.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .display{font-family:'Plus Jakarta Sans',sans-serif;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  :focus-visible{outline:3px solid var(--violet);outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,247,240,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:84px;
+  }
+  .logo img{height:34px;width:auto;}
+  .nav-links{
+    display:flex;gap:36px;align-items:center;
+    font-weight:600;font-size:15px;color:var(--ink-soft);
+  }
+  .nav-links a:hover{color:var(--violet);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 26px;border-radius:100px;
+    font-weight:700;font-size:14.5px;letter-spacing:0.2px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--violet);color:#fff;box-shadow:0 10px 24px -8px rgba(124,58,237,0.55);}
+  .btn-primary:hover{background:var(--violet-deep);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+  .nav-cta{display:flex;align-items:center;gap:28px;}
+  .burger{display:none;background:none;border:none;cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 40px;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:13px;letter-spacing:1.5px;
+    color:var(--violet);text-transform:uppercase;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--violet);display:inline-block;}
+  h1{
+    font-size:clamp(2.4rem,4vw,3.4rem);
+    font-weight:800;line-height:1.08;letter-spacing:-0.5px;
+    color:var(--ink);margin-bottom:22px;
+  }
+  h1 em{color:var(--violet);font-style:normal;}
+  .hero p.lead{
+    font-size:18px;color:var(--ink-soft);max-width:480px;margin-bottom:32px;
+  }
+  .hero p.lead b{color:var(--ink);font-weight:700;}
+  .hero-ctas{display:flex;gap:16px;margin-bottom:44px;flex-wrap:wrap;}
+  .badges{display:flex;gap:28px;flex-wrap:wrap;}
+  .badge{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--ink-soft);}
+  .badge svg{flex-shrink:0;color:var(--violet);}
+  .hero-media{position:relative;}
+  .hero-media img{
+    border-radius:24px;box-shadow:var(--shadow);
+    border:8px solid var(--paper);
+  }
+
+  /* ---------- WAVE DIVIDER (signature) ---------- */
+  .wave{width:100%;height:64px;display:block;margin-top:24px;}
+
+  /* ---------- FEATURED PRODUCT ---------- */
+  .featured{background:var(--lilac);padding:88px 0;}
+  .featured .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:70px;align-items:center;}
+  .book-frame{position:relative;display:flex;justify-content:center;}
+  .book-frame img{
+    max-width:340px;border-radius:12px;
+    box-shadow:0 35px 60px -25px rgba(91,33,182,0.4);
+    transform:rotate(-2deg);
+  }
+  .featured h2{
+    font-size:clamp(1.9rem,3vw,2.5rem);font-weight:800;
+    line-height:1.15;margin-bottom:16px;color:var(--ink);
+  }
+  .featured h2 span{color:var(--violet);}
+  .featured .kicker{color:var(--ink-soft);font-size:16px;margin-bottom:26px;max-width:520px;}
+  .feature-list{list-style:none;display:grid;gap:13px;margin-bottom:30px;}
+  .feature-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500;}
+  .feature-list svg{flex-shrink:0;margin-top:2px;color:#fff;background:var(--violet);border-radius:50%;padding:3px;}
+  .price-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:8px;}
+  .price-tag{font-size:14px;color:var(--ink-soft);font-weight:600;}
+  .fine-print{font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* ---------- ARTICLES ---------- */
+  .articles{padding:96px 0;}
+  .section-head{max-width:600px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.3rem);font-weight:800;margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft);font-size:16px;}
+  .article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .article-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:0;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .article-thumb{
+    height:160px;background:linear-gradient(135deg,var(--lilac),#EAE0FA);
+    display:flex;align-items:center;justify-content:center;color:var(--violet);
+  }
+  .article-body{padding:24px;}
+  .article-tag{
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:0.6px;
+    color:var(--violet);background:var(--lilac);padding:5px 12px;border-radius:100px;
+    margin-bottom:14px;text-transform:uppercase;
+  }
+  .article-body h3{font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.35;}
+  .article-body p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#EFEAE0;padding:64px 0 32px;}
+  .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px;}
+  .footer-logo{height:30px;filter:brightness(0) invert(1);margin-bottom:16px;}
+  .footer-col h4{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#B7C7C3;margin-bottom:16px;}
+  .footer-col a{display:block;font-size:14.5px;color:#EFEAE0;opacity:0.85;margin-bottom:10px;}
+  .footer-col a:hover{opacity:1;color:var(--violet);}
+  .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;font-size:13px;color:#9FB0AC;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .footer-p{max-width:280px;font-size:14px;color:#B7C7C3;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero .wrap, .featured .wrap{grid-template-columns:1fr;}
+    .hero-media{order:-1;}
+    .article-grid{grid-template-columns:1fr;}
+    .book-frame img{max-width:260px;}
+    .footer-top{flex-direction:column;}
+  }
+</style>
 </head>
 <body>
 
-<!-- ===================== NAV ===================== -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Início</a></li>
-    <li><a href="artigos.html">Ebooks</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-    <li><a href="artigos.html" class="nav-cta">Ver Catálogo</a></li>
-  </ul>
-  <button class="nav-hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<header>
+  <nav class="wrap">
+    <a href="#" class="logo"><img src="assets/logo.png" alt="Mergulho Digital"></a>
+    <div class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#produto">Ebooks</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#produto" class="btn btn-primary">Ver Catálogo</a>
+      <button class="burger" aria-label="Abrir menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#16302C" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
 
-<!-- ===================== HERO ===================== -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">Mergulho Digital — Infoprodutos</div>
-    <h1 class="hero-title">
-      Conhecimento<br>
-      que <span class="accent">Transforma</span><br>
-      Vidas
-    </h1>
-    <p class="hero-sub">
-      Ebooks e audiobooks cuidadosamente criados para quem quer crescer. Mais de 80 títulos em autoajuda, negócios, tecnologia e muito mais.
-    </p>
-    <div class="hero-actions">
-      <a href="artigos.html" class="btn-primary">Explorar Catálogo →</a>
-      <a href="sobre.html" class="btn-outline">Sobre o Projeto</a>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Mergulho Digital — Infoprodutos</div>
+      <h1>Conhecimento que <em>transforma</em>. Resultados que ficam.</h1>
+      <p class="lead">Ebooks e ferramentas práticas para você <b>aprender, aplicar e crescer</b> todos os dias — direto para quem já tem negócio para tocar e pouco tempo para estudar teoria.</p>
+      <div class="hero-ctas">
+        <a href="#produto" class="btn btn-primary">Conhecer o IA para MEI</a>
+        <a href="#sobre" class="btn btn-ghost">Sobre a Mergulho Digital</a>
+      </div>
+      <div class="badges">
+        <div class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" stroke="currentColor" stroke-width="1.6"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" stroke="currentColor" stroke-width="1.6"/></svg>Conteúdo de qualidade</div>
+        <div class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3.2v5.4c0 4.6-3 8.7-7 9.9-4-1.2-7-5.3-7-9.9V6.2L12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="m9 12 2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Compra 100% segura</div>
+        <div class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 3 4 14h6l-1 7 9-11h-6l1-7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Acesso imediato</div>
+        <div class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M3 13h18M12 9v11M12 9c-1.8 0-3.2-1.5-3.2-3.2S10.2 3 12 5.2 15.2 3 15.2 5.8 13.8 9 12 9Z" stroke="currentColor" stroke-width="1.6"/></svg>Bônus exclusivos</div>
+      </div>
+    </div>
+    <div class="hero-media reveal">
+      <img src="assets/hero.jpg" alt="Mulher lendo conteúdo Mergulho Digital em um tablet">
     </div>
   </div>
-
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">80+</div>
-      <div class="hero-stat-label">Títulos publicados</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">4</div>
-      <div class="hero-stat-label">Plataformas</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">2</div>
-      <div class="hero-stat-label">Mercados</div>
-    </div>
-  </div>
-
-  <a href="#destaques" class="hero-scroll">Rolar</a>
+  <svg class="wave" viewBox="0 0 1180 64" preserveAspectRatio="none">
+    <path d="M0 32 Q 90 4 180 32 T 360 32 T 540 32 T 720 32 T 900 32 T 1080 32 L1180 32 L1180 64 L0 64 Z" fill="#F3EEFC"/>
+  </svg>
 </section>
 
-<!-- ===================== CATEGORIES BAND ===================== -->
-<div class="categories-band">
-  <a href="artigos.html?cat=ia" class="cat-item">
-    <span class="cat-icon">🤖</span>
-    <div class="cat-name">Inteligência Artificial</div>
-    <div class="cat-count">3 títulos</div>
-  </a>
-  <a href="artigos.html?cat=autoajuda" class="cat-item">
-    <span class="cat-icon">🌱</span>
-    <div class="cat-name">Autoajuda</div>
-    <div class="cat-count">12 títulos</div>
-  </a>
-  <a href="artigos.html?cat=negocios" class="cat-item">
-    <span class="cat-icon">💼</span>
-    <div class="cat-name">Negócios Digitais</div>
-    <div class="cat-count">8 títulos</div>
-  </a>
-  <a href="artigos.html?cat=saude" class="cat-item">
-    <span class="cat-icon">💜</span>
-    <div class="cat-name">Saúde & Bem-estar</div>
-    <div class="cat-count">10 títulos</div>
-  </a>
-  <a href="artigos.html?cat=ingles" class="cat-item">
-    <span class="cat-icon">🌎</span>
-    <div class="cat-name">English Titles</div>
-    <div class="cat-count">6 títulos</div>
-  </a>
-  <a href="artigos.html?cat=humor" class="cat-item">
-    <span class="cat-icon">😄</span>
-    <div class="cat-name">Humor</div>
-    <div class="cat-count">14 títulos</div>
-  </a>
-</div>
-
-<!-- ===================== DESTAQUES ===================== -->
-<section id="destaques" class="section section-dark">
-  <div class="container">
-    <div class="fade-up">
-      <div class="section-eyebrow">Lançamentos em Destaque</div>
-      <h2 class="section-title">Os mais <span class="accent">procurados</span></h2>
+<section class="featured" id="produto">
+  <div class="wrap">
+    <div class="book-frame reveal">
+      <img src="assets/ebook-ia-mei.jpg" alt="Capa do ebook IA para MEI">
     </div>
-
-    <div class="featured-grid fade-up" style="margin-top:3rem">
-      <div class="featured-main">
-        <div class="featured-main-bg"></div>
-        <div class="section-eyebrow">Lançamento</div>
-        <h3 class="section-title">IA para MEI</h3>
-        <p class="section-desc">O guia completo de Inteligência Artificial para Microempreendedores Individuais. Automatize, cresça e prospere com IA.</p>
-        <a href="venda-ia-mei.html" class="btn-primary" style="align-self:flex-start;">Ver produto →</a>
+    <div class="reveal">
+      <div class="eyebrow">Produto em destaque</div>
+      <h2>IA para MEI — <span>venda mais</span> sem contratar equipe</h2>
+      <p class="kicker">Use o ChatGPT gratuito para atender clientes, criar posts, organizar seu negócio, precificar melhor e vender com mais segurança — mesmo começando do zero.</p>
+      <ul class="feature-list">
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Atenda clientes pelo WhatsApp com mais rapidez</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Crie posts para Instagram sem travar</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Organize sua semana e seu negócio com IA</li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Inclui 20 prompts prontos para copiar e usar hoje</li>
+      </ul>
+      <div class="price-row">
+        <a href="#" class="btn btn-primary">Quero garantir o meu agora</a>
+        <span class="price-tag">Pagamento seguro via Hotmart</span>
       </div>
-      <div class="featured-side">
-        <a href="artigos.html" class="featured-card">
-          <div class="article-category">Autoajuda</div>
-          <h4 class="article-title">Amor Próprio — O Guia Completo</h4>
-          <p class="article-desc">Um mergulho profundo no autoconhecimento e na construção de uma vida com mais amor e propósito.</p>
-        </a>
-        <a href="artigos.html" class="featured-card">
-          <div class="article-category">Bem-estar</div>
-          <h4 class="article-title">Mente em Silêncio</h4>
-          <p class="article-desc">Técnicas comprovadas para controlar a ansiedade noturna e dormir com tranquilidade.</p>
-        </a>
+      <p class="fine-print">Acesso imediato após a confirmação da compra · Ebook em PDF + bônus de 20 prompts</p>
+    </div>
+  </div>
+</section>
+
+<section class="articles" id="artigos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Artigos</div>
+      <h2>Conteúdo para você ir além do ebook</h2>
+      <p>Em breve, artigos práticos sobre IA aplicada ao dia a dia do MEI — direto aqui na Mergulho Digital.</p>
+    </div>
+    <div class="article-grid">
+      <div class="article-card reveal">
+        <div class="article-thumb">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Em breve</span>
+          <h3>5 prompts de ChatGPT que todo MEI deveria usar hoje</h3>
+          <p>Um guia rápido com exemplos prontos para atendimento e vendas.</p>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-thumb">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Em breve</span>
+          <h3>Como responder clientes no WhatsApp sem parecer robótico</h3>
+          <p>O equilíbrio entre agilidade e atendimento humano.</p>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-thumb">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="article-body">
+          <span class="article-tag">Em breve</span>
+          <h3>Precificação com IA: pare de cobrar barato demais</h3>
+          <p>Um passo a passo simples para calcular seu preço com confiança.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== ARTICLES PREVIEW ===================== -->
-<section class="section section-white">
-  <div class="container">
-    <div class="articles-header fade-up">
+<footer id="sobre">
+  <div class="wrap">
+    <div class="footer-top">
       <div>
-        <div class="section-eyebrow">Catálogo</div>
-        <h2 class="section-title">Nossos <span class="accent">Ebooks</span></h2>
+        <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo">
+        <p class="footer-p">Ebooks e ferramentas práticas para quem quer aprender, aplicar e crescer todos os dias.</p>
       </div>
-      <a href="artigos.html" class="btn-outline" style="border-color:#1B4D4A;color:#1B4D4A;white-space:nowrap;">Ver todos →</a>
-    </div>
-
-    <div class="articles-grid fade-up">
-
-      <a href="venda-ia-mei.html" class="article-card" data-category="ia">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder">
-            <span>🤖</span>
-          </div>
-          <span class="article-tag">Novo</span>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <a href="#inicio">Início</a>
+          <a href="#produto">Ebooks</a>
+          <a href="#artigos">Artigos</a>
         </div>
-        <div class="article-body">
-          <div class="article-category">Inteligência Artificial</div>
-          <h3 class="article-title">IA para MEI — Guia Completo</h3>
-          <p class="article-desc">Tudo que um MEI precisa saber sobre IA para automatizar e escalar seu negócio.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 29,90</span>
-            <span class="article-link">Adquirir</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="autoajuda">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple">
-            <span>💜</span>
-          </div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Autoajuda</div>
-          <h3 class="article-title">Amor Próprio — 30 Dias de Transformação</h3>
-          <p class="article-desc">Um programa completo para se reencontrar e construir uma relação saudável consigo mesmo.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 34,90</span>
-            <span class="article-link">Adquirir</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="saude">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder">
-            <span>🌙</span>
-          </div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Bem-estar</div>
-          <h3 class="article-title">Mente em Silêncio</h3>
-          <p class="article-desc">Ansiedade noturna, insônia e pensamentos acelerados — aprenda a silenciar a mente.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 27,90</span>
-            <span class="article-link">Adquirir</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ABOUT STRIP ===================== -->
-<section class="section section-off">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-wrap fade-up">
-        <div class="about-img-main">
-          <div class="about-img-placeholder">📚<br><br>Sua imagem aqui</div>
-        </div>
-        <div class="about-img-accent">
-          <div class="about-img-placeholder" style="color:rgba(255,255,255,0.6);font-size:0.75rem;">Imagem accent</div>
-        </div>
-      </div>
-      <div class="fade-up">
-        <div class="section-eyebrow">Sobre o projeto</div>
-        <h2 class="section-title">Criado com <span class="accent">propósito</span></h2>
-        <p class="section-desc">O Mergulho Digital nasceu da paixão por compartilhar conhecimento de forma acessível e transformadora. Cada ebook é desenvolvido com cuidado para gerar resultado real.</p>
-        <div class="about-features">
-          <div class="about-feat">
-            <div class="about-feat-icon">📖</div>
-            <div>
-              <h4>Conteúdo de Qualidade</h4>
-              <p>Cada título é pesquisado, escrito e revisado com atenção ao detalhe para entregar valor real ao leitor.</p>
-            </div>
-          </div>
-          <div class="about-feat">
-            <div class="about-feat-icon">🎧</div>
-            <div>
-              <h4>Versões em Audiobook</h4>
-              <p>Os principais títulos também estão disponíveis em formato de áudio, para aprender em qualquer lugar.</p>
-            </div>
-          </div>
-          <div class="about-feat">
-            <div class="about-feat-icon">🌍</div>
-            <div>
-              <h4>Alcance Global</h4>
-              <p>Produtos disponíveis em Hotmart, Kiwify, Amazon KDP e Etsy — em português e inglês.</p>
-            </div>
-          </div>
+        <div class="footer-col" id="contato">
+          <h4>Contato</h4>
+          <a href="mailto:contato@mergulhodigital.com">contato@mergulhodigital.com</a>
+          <a href="#">Instagram</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===================== CTA BAND ===================== -->
-<div class="cta-band fade-up">
-  <div>
-    <h2 class="section-title">Pronto para <span class="accent">mergulhar</span>?</h2>
-    <p>Explore o catálogo completo e encontre o ebook certo para você.</p>
-  </div>
-  <a href="artigos.html" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">Ver Catálogo Completo →</a>
-</div>
-
-<!-- ===================== FOOTER ===================== -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
-      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
-      <p class="footer-about">Infoprodutos que transformam conhecimento em ação. Ebooks e audiobooks em diversas áreas do saber.</p>
+    <div class="footer-bottom">
+      <span>© 2026 Mergulho Digital. Todos os direitos reservados.</span>
+      <span>Feito por J Barreto</span>
     </div>
-    <div class="footer-col">
-      <h5>Navegação</h5>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="artigos.html">Catálogo</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Categorias</h5>
-      <ul>
-        <li><a href="artigos.html?cat=ia">Inteligência Artificial</a></li>
-        <li><a href="artigos.html?cat=autoajuda">Autoajuda</a></li>
-        <li><a href="artigos.html?cat=negocios">Negócios</a></li>
-        <li><a href="artigos.html?cat=saude">Bem-estar</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Links Úteis</h5>
-      <ul>
-        <li><a href="#">Hotmart</a></li>
-        <li><a href="#">Kiwify</a></li>
-        <li><a href="#">Amazon KDP</a></li>
-        <li><a href="politica.html">Política de Privacidade</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
-    <span>mergulhodigital.com</span>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
 </body>
 </html>
