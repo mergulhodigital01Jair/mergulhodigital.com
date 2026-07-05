@@ -199,6 +199,8 @@
   .author-byline .role{font-size:13px;color:var(--ink-soft);}
   .whale-egg{width:130px;flex-shrink:0;cursor:pointer;border-radius:14px;overflow:hidden;position:relative;}
   .whale-egg img, .whale-egg video{width:100%;display:block;}
+  .whale-egg video::-webkit-media-controls,
+  .whale-egg video::-webkit-media-controls-picture-in-picture-button{display:none !important;}
   .story p{font-size:15.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
   .cta-band{
     background:var(--ink);color:#fff;border-radius:24px;padding:48px 56px;
@@ -317,7 +319,7 @@
       </div>
       <div class="whale-egg" title="Passa o mouse na baleia">
         <img src="assets/whale-poster.jpg" class="whale-still" alt="Baleia Mergulho Digital">
-        <video muted loop playsinline class="whale-vid" style="display:none;">
+        <video muted loop playsinline disablepictureinpicture disableremoteplayback class="whale-vid" style="display:none;">
           <source src="assets/whale-splash.mp4" type="video/mp4">
         </video>
       </div>
