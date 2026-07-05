@@ -192,9 +192,10 @@
   .story p{font-size:15.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
   .photo-placeholder{
     background:linear-gradient(135deg,var(--ink) 0%, var(--violet-deep) 100%);
-    border-radius:var(--radius);min-height:380px;display:flex;align-items:center;justify-content:center;
-    color:rgba(255,255,255,0.75);text-align:center;font-size:14px;padding:32px;
+    border-radius:var(--radius);min-height:380px;display:flex;align-items:flex-end;justify-content:center;
+    color:rgba(255,255,255,0.75);text-align:center;font-size:14px;padding:0;overflow:hidden;
   }
+  .photo-placeholder img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block;}
   .cta-band{
     background:var(--ink);color:#fff;border-radius:24px;padding:48px 56px;
     display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
@@ -308,8 +309,7 @@
       <a href="artigos.html" class="btn btn-primary">Ver o catálogo</a>
     </div>
     <div class="photo-placeholder">
-      📸 Sua foto aqui<br><br>
-      <span style="font-size:12.5px;opacity:0.85;">Substitua por uma imagem sua<br>ou do seu espaço de trabalho</span>
+      <img src="assets/jair-photo.png" alt="Foto de J Barreto, criador da Mergulho Digital">
     </div>
   </div>
 </section>
