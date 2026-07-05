@@ -166,6 +166,10 @@
   }
 
   /* ---------- RESPONSIVE ---------- */
+  .nav-links.nav-open{
+    display:flex !important;flex-direction:column;position:fixed;top:84px;left:0;right:0;
+    background:var(--cream);padding:26px 32px;gap:20px;border-bottom:1px solid var(--line);z-index:49;
+  }
   @media (max-width:920px){
     .nav-links{display:none;}
     .burger{display:block;}
@@ -181,16 +185,16 @@
 
 <header>
   <nav class="wrap">
-    <a href="#" class="logo"><img src="assets/logo.png" alt="Mergulho Digital"></a>
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Mergulho Digital"></a>
     <div class="nav-links">
       <a href="#inicio">Início</a>
-      <a href="#produto">Ebooks</a>
+      <a href="artigos.html">Ebooks</a>
       <a href="#artigos">Artigos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
     </div>
     <div class="nav-cta">
-      <a href="#produto" class="btn btn-primary">Ver Catálogo</a>
+      <a href="artigos.html" class="btn btn-primary">Ver Catálogo</a>
       <button class="burger" aria-label="Abrir menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#16302C" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
@@ -205,8 +209,8 @@
       <h1>Conhecimento que <em>transforma</em>. Resultados que ficam.</h1>
       <p class="lead">Ebooks e ferramentas práticas para você <b>aprender, aplicar e crescer</b> todos os dias — direto para quem já tem negócio para tocar e pouco tempo para estudar teoria.</p>
       <div class="hero-ctas">
-        <a href="#produto" class="btn btn-primary">Conhecer o IA para MEI</a>
-        <a href="#sobre" class="btn btn-ghost">Sobre a Mergulho Digital</a>
+        <a href="venda-ia-mei.html" class="btn btn-primary">Conhecer o IA para MEI</a>
+        <a href="sobre.html" class="btn btn-ghost">Sobre a Mergulho Digital</a>
       </div>
       <div class="badges">
         <div class="badge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" stroke="currentColor" stroke-width="1.6"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20" stroke="currentColor" stroke-width="1.6"/></svg>Conteúdo de qualidade</div>
@@ -240,7 +244,7 @@
         <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Inclui 20 prompts prontos para copiar e usar hoje</li>
       </ul>
       <div class="price-row">
-        <a href="#" class="btn btn-primary">Quero garantir o meu agora</a>
+        <a href="venda-ia-mei.html" class="btn btn-primary">Quero garantir o meu agora</a>
         <span class="price-tag">Pagamento seguro via Hotmart</span>
       </div>
       <p class="fine-print">Acesso imediato após a confirmação da compra · Ebook em PDF + bônus de 20 prompts</p>
@@ -290,7 +294,7 @@
   </div>
 </section>
 
-<footer id="sobre">
+<footer>
   <div class="wrap">
     <div class="footer-top">
       <div>
@@ -300,8 +304,8 @@
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Navegação</h4>
-          <a href="#inicio">Início</a>
-          <a href="#produto">Ebooks</a>
+          <a href="index.html">Início</a>
+          <a href="artigos.html">Ebooks</a>
           <a href="#artigos">Artigos</a>
         </div>
         <div class="footer-col" id="contato">
@@ -323,6 +327,10 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:0.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.burger').forEach(b=>{
+    b.addEventListener('click', ()=> document.querySelector('.nav-links').classList.toggle('nav-open'));
+  });
 </script>
 
 </body>

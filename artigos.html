@@ -1,314 +1,382 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo de Ebooks — Mergulho Digital</title>
-  <meta name="description" content="Explore todos os ebooks e audiobooks do Mergulho Digital. Mais de 80 títulos em autoajuda, IA, negócios, bem-estar e muito mais." />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .nav-links.mobile-open {
-      display: flex !important; flex-direction: column;
-      position: fixed; top: 72px; left: 0; right: 0;
-      background: rgba(10,10,10,0.97); padding: 2rem;
-      gap: 1.5rem; border-bottom: 1px solid rgba(168,85,247,0.2);
-    }
-    .nav-cta.mobile-open { display: inline-flex !important; align-self: flex-start; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Ebooks — Mergulho Digital</title>
+<meta name="description" content="Explore os ebooks do Mergulho Digital. Novos títulos sendo adicionados com calma e qualidade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
 
-    .articles-full-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 900px) { .articles-full-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 560px) { .articles-full-grid { grid-template-columns: 1fr; } }
-  </style>
+  :root{
+    --cream:#FBF7F0;
+    --paper:#FFFFFF;
+    --ink:#16302C;
+    --ink-soft:#3E5652;
+    --violet:#7C3AED;
+    --violet-deep:#5B21B6;
+    --lilac:#F3EEFC;
+    --line:#E9E2D6;
+    --gold:#B8935A;
+    --radius:18px;
+    --shadow:0 20px 45px -20px rgba(22,48,44,0.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .display{font-family:'Plus Jakarta Sans',sans-serif;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  :focus-visible{outline:3px solid var(--violet);outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,247,240,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:84px;
+  }
+  .logo img{height:34px;width:auto;}
+  .nav-links{
+    display:flex;gap:36px;align-items:center;
+    font-weight:600;font-size:15px;color:var(--ink-soft);
+  }
+  .nav-links a:hover{color:var(--violet);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 26px;border-radius:100px;
+    font-weight:700;font-size:14.5px;letter-spacing:0.2px;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer;border:none;
+  }
+  .btn-primary{background:var(--violet);color:#fff;box-shadow:0 10px 24px -8px rgba(124,58,237,0.55);}
+  .btn-primary:hover{background:var(--violet-deep);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:#fff;}
+  .nav-cta{display:flex;align-items:center;gap:28px;}
+  .burger{display:none;background:none;border:none;cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 40px;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:13px;letter-spacing:1.5px;
+    color:var(--violet);text-transform:uppercase;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--violet);display:inline-block;}
+  h1{
+    font-size:clamp(2.4rem,4vw,3.4rem);
+    font-weight:800;line-height:1.08;letter-spacing:-0.5px;
+    color:var(--ink);margin-bottom:22px;
+  }
+  h1 em{color:var(--violet);font-style:normal;}
+  .hero p.lead{
+    font-size:18px;color:var(--ink-soft);max-width:480px;margin-bottom:32px;
+  }
+  .hero p.lead b{color:var(--ink);font-weight:700;}
+  .hero-ctas{display:flex;gap:16px;margin-bottom:44px;flex-wrap:wrap;}
+  .badges{display:flex;gap:28px;flex-wrap:wrap;}
+  .badge{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--ink-soft);}
+  .badge svg{flex-shrink:0;color:var(--violet);}
+  .hero-media{position:relative;}
+  .hero-media img{
+    border-radius:24px;box-shadow:var(--shadow);
+    border:8px solid var(--paper);
+  }
+
+  /* ---------- WAVE DIVIDER (signature) ---------- */
+  .wave{width:100%;height:64px;display:block;margin-top:24px;}
+
+  /* ---------- FEATURED PRODUCT ---------- */
+  .featured{background:var(--lilac);padding:88px 0;}
+  .featured .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:70px;align-items:center;}
+  .book-frame{position:relative;display:flex;justify-content:center;}
+  .book-frame img{
+    max-width:340px;border-radius:12px;
+    box-shadow:0 35px 60px -25px rgba(91,33,182,0.4);
+    transform:rotate(-2deg);
+  }
+  .featured h2{
+    font-size:clamp(1.9rem,3vw,2.5rem);font-weight:800;
+    line-height:1.15;margin-bottom:16px;color:var(--ink);
+  }
+  .featured h2 span{color:var(--violet);}
+  .featured .kicker{color:var(--ink-soft);font-size:16px;margin-bottom:26px;max-width:520px;}
+  .feature-list{list-style:none;display:grid;gap:13px;margin-bottom:30px;}
+  .feature-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);font-weight:500;}
+  .feature-list svg{flex-shrink:0;margin-top:2px;color:#fff;background:var(--violet);border-radius:50%;padding:3px;}
+  .price-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:8px;}
+  .price-tag{font-size:14px;color:var(--ink-soft);font-weight:600;}
+  .fine-print{font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+
+  /* ---------- ARTICLES ---------- */
+  .articles{padding:96px 0;}
+  .section-head{max-width:600px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.3rem);font-weight:800;margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft);font-size:16px;}
+  .article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .article-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:0;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .article-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .article-thumb{
+    height:160px;background:linear-gradient(135deg,var(--lilac),#EAE0FA);
+    display:flex;align-items:center;justify-content:center;color:var(--violet);
+  }
+  .article-body{padding:24px;}
+  .article-tag{
+    display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:0.6px;
+    color:var(--violet);background:var(--lilac);padding:5px 12px;border-radius:100px;
+    margin-bottom:14px;text-transform:uppercase;
+  }
+  .article-body h3{font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.35;}
+  .article-body p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#EFEAE0;padding:64px 0 32px;}
+  .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px;}
+  .footer-logo{height:30px;filter:brightness(0) invert(1);margin-bottom:16px;}
+  .footer-col h4{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#B7C7C3;margin-bottom:16px;}
+  .footer-col a{display:block;font-size:14.5px;color:#EFEAE0;opacity:0.85;margin-bottom:10px;}
+  .footer-col a:hover{opacity:1;color:var(--violet);}
+  .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;font-size:13px;color:#9FB0AC;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .footer-p{max-width:280px;font-size:14px;color:#B7C7C3;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  .nav-links.nav-open{
+    display:flex !important;flex-direction:column;position:fixed;top:84px;left:0;right:0;
+    background:var(--cream);padding:26px 32px;gap:20px;border-bottom:1px solid var(--line);z-index:49;
+  }
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero .wrap, .featured .wrap{grid-template-columns:1fr;}
+    .hero-media{order:-1;}
+    .article-grid{grid-template-columns:1fr;}
+    .book-frame img{max-width:260px;}
+    .footer-top{flex-direction:column;}
+  }
+
+
+  /* ---------- SHARED PAGE HERO ---------- */
+  .page-hero{background:var(--lilac);padding:70px 0 56px;}
+  .page-hero h1{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;margin-bottom:16px;letter-spacing:-0.5px;}
+  .page-hero p{color:var(--ink-soft);font-size:17px;max-width:560px;}
+
+  .story{padding:88px 0;}
+  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .story p{font-size:15.5px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
+  .photo-placeholder{
+    background:linear-gradient(135deg,var(--ink) 0%, var(--violet-deep) 100%);
+    border-radius:var(--radius);min-height:380px;display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,0.75);text-align:center;font-size:14px;padding:32px;
+  }
+  .cta-band{
+    background:var(--ink);color:#fff;border-radius:24px;padding:48px 56px;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    max-width:1180px;margin:0 auto 96px;
+  }
+  .cta-band h2{font-size:1.6rem;font-weight:800;margin-bottom:6px;}
+  .cta-band p{color:#C7D6D2;font-size:15px;}
+
+  .contact-wrap{padding:88px 0;}
+  .contact-wrap .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start;}
+  .form-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:40px;}
+  .form-card h2{font-size:1.4rem;font-weight:800;margin-bottom:28px;}
+  label{font-size:13px;font-weight:700;color:var(--ink);display:block;margin-bottom:6px;}
+  input,textarea,select{
+    width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:10px;
+    font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);background:var(--cream);
+    margin-bottom:18px;transition:border-color .15s;
+  }
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--violet);background:#fff;}
+  textarea{min-height:120px;resize:vertical;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-note{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:-4px;}
+  .form-note a{color:var(--violet);font-weight:600;}
+  .contact-info h3{font-size:1.1rem;font-weight:800;margin-bottom:24px;}
+  .contact-info-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px;}
+  .contact-icon{width:42px;height:42px;border-radius:50%;background:var(--lilac);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .contact-info-item .label{font-weight:700;font-size:14px;margin-bottom:3px;}
+  .contact-info-item a, .contact-info-item span.value{font-size:13.5px;color:var(--ink-soft);}
+  .note-card{background:var(--lilac);border-left:3px solid var(--violet);border-radius:10px;padding:18px 20px;font-size:13.5px;color:var(--ink-soft);margin-top:8px;}
+  .note-card strong{color:var(--ink);}
+
+  .catalog{padding:56px 0 96px;}
+  .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px;}
+  .product-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .product-thumb{height:180px;position:relative;background:linear-gradient(135deg,var(--lilac),#EAE0FA);}
+  .product-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .product-badge{
+    position:absolute;top:12px;left:12px;background:var(--violet);color:#fff;
+    font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;
+    text-transform:uppercase;letter-spacing:0.4px;
+  }
+  .product-body{padding:22px;display:flex;flex-direction:column;flex:1;}
+  .product-cat{font-size:11.5px;font-weight:700;color:var(--violet);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+  .product-title{font-size:16.5px;font-weight:700;margin-bottom:8px;line-height:1.35;color:var(--ink);}
+  .product-desc{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;flex:1;}
+  .product-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--line);}
+  .product-price{font-weight:800;color:var(--ink);font-size:14.5px;}
+  .product-link{font-size:13px;font-weight:700;color:var(--violet);}
+  .coming-soon-card{
+    border:2px dashed var(--line);border-radius:var(--radius);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    padding:40px 24px;color:var(--ink-soft);gap:10px;
+  }
+  .coming-soon-card svg{color:var(--violet);}
+  .coming-soon-card strong{color:var(--ink);font-size:15px;}
+  .admin-hint{
+    text-align:center;margin-top:32px;padding:20px;background:var(--lilac);border-radius:12px;
+    font-size:13px;color:var(--ink-soft);
+  }
+  .admin-hint code{background:#fff;padding:2px 6px;border-radius:5px;font-family:monospace;color:var(--violet-deep);}
+
+  @media (max-width:920px){
+    .story .wrap, .contact-wrap .wrap{grid-template-columns:1fr;}
+    .catalog-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .cta-band{flex-direction:column;align-items:flex-start;}
+  }
+
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="assets/logo.png" alt="Mergulho Digital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-    <span style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;">Mergulho <span style="color:#A855F7">Digital</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="artigos.html" class="active">Ebooks</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-    <li><a href="artigos.html" class="nav-cta">Ver Catálogo</a></li>
-  </ul>
-  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Mergulho Digital"></a>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="artigos.html" class="active">Ebooks</a>
+      <a href="index.html#artigos">Artigos</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </div>
+    <div class="nav-cta">
+      <a href="artigos.html" class="btn btn-primary">Ver Catálogo</a>
+      <button class="burger" aria-label="Abrir menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#16302C" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
 
-<!-- HERO -->
-<section class="articles-page-hero">
-  <div class="container">
-    <div class="section-eyebrow">Catálogo Completo</div>
-    <h1 class="section-title" style="color:#fff">Todos os <span class="accent">Ebooks</span></h1>
-    <p class="section-desc" style="color:rgba(255,255,255,0.6)">Mais de 80 títulos em diversas áreas do conhecimento. Filtre por categoria e encontre o que você precisa.</p>
+<section class="page-hero">
+  <div class="wrap reveal">
+    <div class="eyebrow">Catálogo</div>
+    <h1>Nossos <em>Ebooks</em></h1>
+    <p>Estamos lançando novos títulos aos poucos, com calma e qualidade. Confira o que já está disponível.</p>
   </div>
 </section>
 
-<!-- FILTER + GRID -->
-<section class="section section-white" style="padding-top:3rem">
-  <div class="container">
+<section class="catalog">
+  <div class="wrap">
+    <div class="catalog-grid reveal">
 
-    <div class="filter-bar fade-up">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="ia">Inteligência Artificial</button>
-      <button class="filter-btn" data-filter="autoajuda">Autoajuda</button>
-      <button class="filter-btn" data-filter="saude">Saúde & Bem-estar</button>
-      <button class="filter-btn" data-filter="negocios">Negócios</button>
-      <button class="filter-btn" data-filter="humor">Humor</button>
-      <button class="filter-btn" data-filter="ingles">English</button>
-      <button class="filter-btn" data-filter="infantil">Infantil</button>
+      <a href="venda-ia-mei.html" class="product-card" style="text-decoration:none;">
+        <div class="product-thumb">
+          <span class="product-badge">Novo</span>
+          <img src="assets/ebook-ia-mei.jpg" alt="Capa do ebook IA para MEI">
+        </div>
+        <div class="product-body">
+          <div class="product-cat">Inteligência Artificial</div>
+          <h3 class="product-title">IA para MEI — Venda mais sem contratar equipe</h3>
+          <p class="product-desc">Use o ChatGPT gratuito para atender clientes, organizar o negócio e vender com mais segurança.</p>
+          <div class="product-footer">
+            <span class="product-price">Ver preço</span>
+            <span class="product-link">Ver produto →</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="coming-soon-card">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3.2v5.4c0 4.6-3 8.7-7 9.9-4-1.2-7-5.3-7-9.9V6.2L12 3Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <strong>Novo título em preparação</strong>
+        <span>Estamos com calma cuidando de cada lançamento — volte em breve.</span>
+      </div>
+
+      <div class="coming-soon-card">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <strong>Mais ebooks chegando</strong>
+        <span>Assine nossa lista ou volte aqui de tempos em tempos para conferir.</span>
+      </div>
+
     </div>
 
-    <div class="articles-full-grid fade-up" id="articles-grid">
-
-      <!-- IA -->
-      <a href="venda-ia-mei.html" class="article-card" data-category="ia">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder"><span>🤖</span></div>
-          <span class="article-tag">Novo</span>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Inteligência Artificial</div>
-          <h3 class="article-title">IA para MEI — Guia Completo</h3>
-          <p class="article-desc">Tudo que um MEI precisa saber sobre IA para automatizar e escalar seu negócio.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 29,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="ia">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple"><span>⚡</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Inteligência Artificial</div>
-          <h3 class="article-title">Kit IA do Pequeno Negócio</h3>
-          <p class="article-desc">Prompts, templates e estratégias de IA para pequenos empreendedores.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 37,00</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- AUTOAJUDA -->
-      <a href="artigos.html" class="article-card" data-category="autoajuda">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple"><span>💜</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Autoajuda</div>
-          <h3 class="article-title">Amor Próprio — 30 Dias</h3>
-          <p class="article-desc">Programa completo de autoconhecimento e transformação pessoal.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 34,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="autoajuda">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder"><span>✨</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Autoajuda</div>
-          <h3 class="article-title">Destrave Seu Novo Ciclo</h3>
-          <p class="article-desc">Numerologia e afirmações para abrir portas e recomeçar com força.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 27,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="autoajuda">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple"><span>🙏</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Espiritualidade</div>
-          <h3 class="article-title">Deus, Me Ensina a Voar</h3>
-          <p class="article-desc">Uma jornada de fé e autodescoberta para elevar o espírito.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 24,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- SAÚDE -->
-      <a href="artigos.html" class="article-card" data-category="saude">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder"><span>🌙</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Bem-estar</div>
-          <h3 class="article-title">Mente em Silêncio</h3>
-          <p class="article-desc">Técnicas para controlar ansiedade noturna e dormir com tranquilidade.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 27,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="saude">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple"><span>🌸</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Saúde</div>
-          <h3 class="article-title">Menopausa sem Tabu</h3>
-          <p class="article-desc">Guia completo sobre menopausa com linguagem acessível e empoderadora.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 29,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="artigos.html" class="article-card" data-category="saude">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder"><span>👴</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Família</div>
-          <h3 class="article-title">Meus Pais Estão Envelhecendo</h3>
-          <p class="article-desc">Guia prático para famílias que cuidam de pais idosos com amor e organização.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 32,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- NEGÓCIOS -->
-      <a href="artigos.html" class="article-card" data-category="negocios">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple"><span>📱</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Negócios Digitais</div>
-          <h3 class="article-title">Cartilha do Tráfego Pago</h3>
-          <p class="article-desc">Guia completo de tráfego pago para infoprodutores que querem vender mais.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 37,00</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- HUMOR -->
-      <a href="artigos.html" class="article-card" data-category="humor">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder"><span>😂</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Humor</div>
-          <h3 class="article-title">Como Resolver Problemas com Humor — Vol. 1</h3>
-          <p class="article-desc">O primeiro volume da série de humor que já conquistou mais de 14 títulos.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 19,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ENGLISH -->
-      <a href="artigos.html" class="article-card" data-category="ingles">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder purple"><span>🔥</span></div>
-          <span class="article-tag">English</span>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Self-Help (English)</div>
-          <h3 class="article-title">Burned Out & Broke: 30-Day Reset</h3>
-          <p class="article-desc">A complete 30-day program for American women ready to reset their life and finances.</p>
-          <div class="article-footer">
-            <span class="article-price">$37.00</span>
-            <span class="article-link">Get it now</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- INFANTIL -->
-      <a href="artigos.html" class="article-card" data-category="infantil">
-        <div class="article-img-wrap">
-          <div class="article-img-placeholder"><span>🌈</span></div>
-        </div>
-        <div class="article-body">
-          <div class="article-category">Infantil / Educação</div>
-          <h3 class="article-title">Atividades para Autismo</h3>
-          <p class="article-desc">Caderno ilustrado de atividades para pais e educadores de crianças com autismo.</p>
-          <div class="article-footer">
-            <span class="article-price">R$ 24,90</span>
-            <span class="article-link">Ver produto</span>
-          </div>
-        </div>
-      </a>
-
-    </div><!-- /articles-full-grid -->
-
-    <!-- Botão para adicionar mais ebooks facilmente -->
-    <div style="text-align:center;margin-top:3rem;padding:2rem;background:#F8F7F4;border-radius:8px;border:2px dashed #E8E6E1;">
-      <p style="color:#9A9590;font-size:0.9rem;margin-bottom:0.5rem;">💡 Para adicionar novos ebooks, duplique um bloco <code>&lt;a class="article-card"&gt;</code> acima</p>
-      <p style="color:#9A9590;font-size:0.8rem;">Altere o título, descrição, categoria, preço e link de venda</p>
+    <div class="admin-hint">
+      💡 Para adicionar um novo ebook aqui, duplique um bloco <code>&lt;a class="product-card"&gt;</code> neste arquivo e altere título, descrição, preço, imagem e link.
     </div>
-
   </div>
 </section>
 
 <footer>
-  <div class="footer-grid">
-    <div>
-      <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
-      <p style="display:none;font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:1rem;">Mergulho <span style="color:#A855F7">Digital</span></p>
-      <p class="footer-about">Infoprodutos que transformam conhecimento em ação.</p>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <img src="assets/logo.png" alt="Mergulho Digital" class="footer-logo">
+        <p class="footer-p">Ebooks e ferramentas práticas para quem quer aprender, aplicar e crescer todos os dias.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <a href="index.html">Início</a>
+          <a href="artigos.html">Ebooks</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="mailto:contato@mergulhodigital.com">contato@mergulhodigital.com</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-col">
-      <h5>Navegação</h5>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="artigos.html">Catálogo</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <span>© 2026 Mergulho Digital. Todos os direitos reservados.</span>
+      <span>Feito por J Barreto</span>
     </div>
-    <div class="footer-col">
-      <h5>Categorias</h5>
-      <ul>
-        <li><a href="#">Inteligência Artificial</a></li>
-        <li><a href="#">Autoajuda</a></li>
-        <li><a href="#">Bem-estar</a></li>
-        <li><a href="#">Humor</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Plataformas</h5>
-      <ul>
-        <li><a href="#">Hotmart</a></li>
-        <li><a href="#">Kiwify</a></li>
-        <li><a href="#">Amazon KDP</a></li>
-        <li><a href="#">Etsy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Mergulho Digital. Todos os direitos reservados.</span>
-    <span>mergulhodigital.com</span>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.burger').forEach(b=>{
+    b.addEventListener('click', ()=> document.querySelector('.nav-links').classList.toggle('nav-open'));
+  });
+</script>
+
 </body>
 </html>
