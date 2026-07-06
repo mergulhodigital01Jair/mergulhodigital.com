@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precificação com IA: pare de cobrar barato demais | Mergulho Digital</title>
+<meta name="description" content="Um passo a passo simples para calcular seu preço com confiança.">
+<meta property="og:title" content="Precificação com IA: pare de cobrar barato demais">
+<meta property="og:description" content="Um passo a passo simples para calcular seu preço com confiança.">
+<meta property="og:image" content="assets/artigo-precificacao-ia-capa.jpg">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF6EC; --ink:#16231C; --body:#5B655F;
+    --violet:#7C3AED; --violet-dark:#6425D0; --violet-light:#EFE6FB;
+    --white:#FFFFFF; --border:#ECE4D6;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter', sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:'Plus Jakarta Sans', sans-serif; color:var(--ink); }
+  a{ color:inherit; }
+  .container{ max-width:1120px; margin:0 auto; padding:0 24px; }
+  header{ border-bottom:1px solid var(--border); background:var(--bg); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 0; }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; text-decoration:none; }
+  .logo img{ height:34px; width:auto; }
+  .logo .accent{ color:var(--violet); }
+  .navlinks{ display:flex; gap:36px; list-style:none; margin:0; padding:0; font-weight:600; font-size:15px; }
+  .navlinks a{ text-decoration:none; color:var(--ink); }
+  .navlinks a.active{ color:var(--violet); }
+  .cta-btn{ background:var(--violet); color:#fff; padding:12px 26px; border-radius:999px; font-weight:700; text-decoration:none; font-size:14px; white-space:nowrap; }
+  @media (max-width:820px){ .navlinks{ display:none; } }
+  .article-head{ padding-top:56px; }
+  .back-link{ text-decoration:none; color:var(--violet); font-weight:600; font-size:14px; }
+  .eyebrow{ display:block; margin:22px 0 14px; color:var(--violet); font-weight:700; letter-spacing:.08em; font-size:13px; text-transform:uppercase; }
+  .eyebrow::before{ content:"— "; }
+  h1.title{ font-size:44px; font-weight:800; line-height:1.15; margin:0 0 18px; max-width:820px; }
+  .subtitle{ font-size:19px; color:var(--body); max-width:680px; margin:0 0 22px; }
+  .meta-row{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--body); margin-bottom:36px; }
+  .meta-row .badge{ background:var(--violet-light); color:var(--violet-dark); padding:5px 14px; border-radius:999px; font-weight:700; font-size:12.5px; }
+  .cover-wrap{ margin-bottom:40px; }
+  .cover{ width:100%; height:auto; display:block; border-radius:20px; object-fit:cover; }
+  .prose{ max-width:720px; margin:0 auto; padding-bottom:80px; font-size:17px; color:var(--ink); }
+  .prose p{ margin:0 0 20px; color:var(--body); }
+  .prose h2{ font-size:24px; margin:40px 0 14px; }
+  .prose > p:first-of-type{ font-size:19px; }
+  .prompt-box{ background:var(--violet-light); border-left:4px solid var(--violet); border-radius:14px; padding:20px 24px; margin:16px 0; }
+  .prompt-box .prompt-label{ display:block; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-dark); margin-bottom:8px; }
+  .prompt-box p{ margin:0; font-style:italic; color:var(--ink); }
+  ol.reasons{ padding-left:0; list-style:none; margin:24px 0; counter-reset:reason; }
+  ol.reasons li{ display:flex; gap:14px; margin-bottom:16px; color:var(--body); }
+  ol.reasons .num{ flex:none; width:30px; height:30px; border-radius:50%; background:var(--violet); color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; }
+  ol.reasons strong{ color:var(--ink); }
+  hr.divider{ border:none; border-top:1px solid var(--border); margin:52px 0; }
+  .cta-card{ background:var(--violet); border-radius:24px; padding:44px 40px; color:#fff; margin-top:8px; }
+  .cta-card h3{ color:#fff; font-size:24px; margin:0 0 12px; }
+  .cta-card p{ color:#EAE0FB; margin:0 0 24px; font-size:16px; }
+  .cta-card .btn{ display:inline-block; background:#fff; color:var(--violet-dark); font-weight:800; padding:14px 28px; border-radius:999px; text-decoration:none; }
+  footer{ border-top:1px solid var(--border); padding:32px 0; text-align:center; color:var(--body); font-size:14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="Mergulho Digital">
+      MERGULHO <span class="accent">DIGITAL</span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="ebooks.html">Ebooks</a></li>
+      <li><a href="artigos.html" class="active">Artigos</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <a href="ebooks.html" class="cta-btn">Ver Catálogo</a>
+  </div>
+</header>
+
+<main>
+  <div class="container article-head">
+    <a href="artigos.html" class="back-link">← Voltar para Artigos</a>
+    <span class="eyebrow">Artigo</span>
+    <h1 class="title">Precificação com IA: pare de cobrar barato demais</h1>
+    <p class="subtitle">Um passo a passo simples para calcular seu preço com confiança.</p>
+    <div class="meta-row"><span class="badge">IA para MEI</span><span>•</span><span>4 min de leitura</span></div>
+  </div>
+
+  <div class="container cover-wrap">
+    <img class="cover" src="assets/artigo-precificacao-ia-capa.jpg" alt="Empreendedora usando notebook e calculadora para revisar os preços do próprio negócio">
+  </div>
+
+  <article class="container prose">
+    <p>Quase todo MEI já passou por isso: cobra um valor, o cliente nem questiona, e só depois — fazendo as contas — percebe que trabalhou o mês inteiro pra ganhar pouco mais que o gasto. O problema quase nunca é falta de clientes. É medo na hora de precificar.</p>
+
+    <h2>Por que o MEI cobra barato</h2>
+    <p>Tem três motivos que se repetem o tempo todo:</p>
+    <ol class="reasons">
+      <li><span class="num">1</span><span><strong>Medo de perder o cliente.</strong> Cobrar mais parece um risco, então o caminho &ldquo;seguro&rdquo; vira cobrar menos.</span></li>
+      <li><span class="num">2</span><span><strong>Falta de visão real dos custos.</strong> Muita gente sabe quanto entra no mês, mas não sabe exatamente quanto sai — e sem essa conta, todo preço é um chute.</span></li>
+      <li><span class="num">3</span><span><strong>Comparação com a concorrência errada.</strong> Olhar o preço do concorrente e simplesmente cobrar igual ou menos, sem saber se aquele preço nem cobre os custos dele.</span></li>
+    </ol>
+    <p>O resultado desses três combinados é sempre o mesmo: preço definido pelo medo, não pela conta.</p>
+
+    <h2>O primeiro passo: tirar o preço do achismo</h2>
+    <p>Antes de pensar em cobrar mais, você precisa responder uma pergunta simples: <strong>o preço que você cobra hoje cobre seus custos e ainda sobra alguma coisa?</strong></p>
+    <p>Isso não exige planilha complicada nem curso de finanças. Dá pra ter uma primeira resposta em poucos minutos, inclusive usando IA como um consultor rápido:</p>
+
+    <div class="prompt-box">
+      <span class="prompt-label">Prompt</span>
+      <p>&ldquo;Sou [SEU TIPO DE NEGÓCIO] e cobro R$[VALOR] pelo meu produto/serviço. Meus custos fixos mensais são [LISTE OS PRINCIPAIS] e eu atendo em média [X] clientes por mês. Me ajude a entender se esse preço cobre meus custos e ainda deixa lucro, ou se estou no prejuízo.&rdquo;</p>
+    </div>
+
+    <p>O retorno não vai ser perfeito — a IA não conhece a fundo o seu negócio —, mas já te dá um primeiro alerta: se o seu preço está na linha de perigo ou se você realmente tem margem pra crescer.</p>
+
+    <hr class="divider">
+
+    <h2 style="margin-top:0;">O que essa conta ainda não resolve</h2>
+    <p>Saber que seu preço está apertado é só o começo. As perguntas que vêm depois são as que realmente travam quem trabalha sozinho: como estruturar pacotes que aumentam o ticket médio sem parecer que você só quer vender mais caro? Como responder com segurança quando o cliente diz &ldquo;tá caro&rdquo; — sem brigar e sem ceder no preço por impulso? Como reativar quem já comprou antes, em vez de sair só atrás de cliente novo?</p>
+
+    <div class="cta-card">
+      <h3>Quer o sistema completo de precificação?</h3>
+      <p>No ebook <strong>IA para MEI</strong>, no módulo dedicado a precificação e vendas estratégicas, você encontra os prompts prontos para montar pacotes, responder objeções e criar campanhas de reativação — além do restante do passo a passo para vender mais usando IA no dia a dia do seu negócio.</p>
+      <a href="venda-ia-mei.html" class="btn">Conheça o ebook IA para MEI</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="container">mergulhodigital.com · © 2026 Mergulho Digital · Todos os direitos reservados</div>
+</footer>
+
+</body>
+</html>
