@@ -33,7 +33,6 @@
   a{ color:inherit; }
   .container{ max-width:1120px; margin:0 auto; padding:0 24px; }
 
-  /* header */
   header{ border-bottom:1px solid var(--border); background:var(--bg); }
   .nav{ display:flex; align-items:center; justify-content:space-between; padding:20px 0; }
   .logo{ display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; text-decoration:none; }
@@ -45,7 +44,6 @@
   .cta-btn{ background:var(--violet); color:#fff; padding:12px 26px; border-radius:999px; font-weight:700; text-decoration:none; font-size:14px; white-space:nowrap; }
   @media (max-width:820px){ .navlinks{ display:none; } }
 
-  /* article head */
   .article-head{ padding-top:56px; }
   .back-link{ text-decoration:none; color:var(--violet); font-weight:600; font-size:14px; }
   .eyebrow{ display:block; margin:22px 0 14px; color:var(--violet); font-weight:700; letter-spacing:.08em; font-size:13px; text-transform:uppercase; }
@@ -55,11 +53,9 @@
   .meta-row{ display:flex; align-items:center; gap:10px; font-size:14px; color:var(--body); margin-bottom:36px; }
   .meta-row .badge{ background:var(--violet-light); color:var(--violet-dark); padding:5px 14px; border-radius:999px; font-weight:700; font-size:12.5px; }
 
-  /* cover image */
   .cover-wrap{ margin-bottom:40px; }
   .cover{ width:100%; height:auto; display:block; border-radius:20px; object-fit:cover; }
 
-  /* prose */
   .prose{ max-width:720px; margin:0 auto; padding-bottom:80px; font-size:17px; color:var(--ink); }
   .prose p{ margin:0 0 20px; color:var(--body); }
   .prose h2{ font-size:24px; margin:40px 0 14px; }
@@ -96,18 +92,18 @@
     </a>
     <ul class="navlinks">
       <li><a href="index.html">Início</a></li>
-      <li><a href="ebooks.html">Ebooks</a></li>
-      <li><a href="artigos.html" class="active">Artigos</a></li>
+      <li><a href="artigos.html">Ebooks</a></li>
+      <li><a href="index.html#artigos" class="active">Artigos</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="contato.html">Contato</a></li>
     </ul>
-    <a href="ebooks.html" class="cta-btn">Ver Catálogo</a>
+    <a href="artigos.html" class="cta-btn">Ver Catálogo</a>
   </div>
 </header>
 
 <main>
   <div class="container article-head">
-    <a href="artigos.html" class="back-link">← Voltar para Artigos</a>
+    <a href="index.html#artigos" class="back-link">← Voltar para Artigos</a>
     <span class="eyebrow">Artigo</span>
     <h1 class="title">5 prompts de ChatGPT que todo MEI deveria usar hoje</h1>
     <p class="subtitle">Um guia rápido com exemplos prontos para atendimento e vendas.</p>
