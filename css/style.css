@@ -8,6 +8,8 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+img { max-width: 100%; height: auto; display: block; }
+
 :root {
   --teal:        #1B4D4A;
   --teal-light:  #2A6B67;
@@ -278,6 +280,18 @@ nav {
   background: var(--teal);
   display: flex; align-items: center; justify-content: center;
 }
+
+.author-byline {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;
+}
+.author-byline-info { display: flex; align-items: center; gap: 14px; }
+.author-byline-info img {
+  width: 64px; height: 64px;
+  border-radius: 50%; object-fit: cover;
+}
+.author-byline-info .name { font-weight: 700; }
+.author-byline-info .role { font-size: 0.85rem; color: var(--gray-mid); }
 
 .about-img-accent {
   width: 55%; height: 55%;
