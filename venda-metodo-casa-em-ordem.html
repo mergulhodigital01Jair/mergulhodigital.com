@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Um plano prático para organizar cada ambiente em 21 dias, com sessões de 20 minutos.">
+  <title>Método Casa em Ordem — 21 Dias</title>
+  <style>:root {
+  --cream: #f5f0e6;
+  --paper: #fffdf8;
+  --forest: #183b2b;
+  --forest-deep: #102a20;
+  --terracotta: #a65436;
+  --gold: #c39a55;
+  --ink: #26231f;
+  --muted: #6b655d;
+  --line: #ddd3c2;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+main { overflow: hidden; }
+img { max-width: 100%; height: auto; }
+.shell { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+.section { padding: 100px 0; }
+.eyebrow { margin: 0 0 18px; color: var(--terracotta); font-size: .74rem; font-weight: 800; letter-spacing: .2em; }
+.eyebrow.gold { color: var(--gold); }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-height: 1.07; letter-spacing: -.03em; margin: 0; }
+h1 { font-size: clamp(2.65rem, 5.4vw, 5.25rem); }
+h2 { font-size: clamp(2.1rem, 4vw, 3.65rem); }
+h3 { font-size: 1.3rem; line-height: 1.3; }
+p { margin: 0 0 20px; }
+a { color: inherit; }
+.check { display: inline-grid; flex: 0 0 auto; place-items: center; width: 23px; height: 23px; border-radius: 50%; background: var(--forest); color: white; font-size: .75rem; }
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 62px;
+  padding: 16px 22px 16px 26px;
+  border-radius: 4px;
+  background: var(--terracotta);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(123,51,30,.18);
+  font-size: .87rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-decoration: none;
+  transition: transform .2s, background .2s;
+}
+.cta:hover { background: #8f432a; transform: translateY(-2px); }
+.cta:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.cta span { font-size: 1.3rem; }
+.cta.compact { min-height: 50px; padding: 10px 14px 10px 17px; gap: 14px; font-size: .76rem; }
+.trust { margin: 12px 0 0; color: var(--muted); font-size: .75rem; }
+.trust.light { color: #c8cec8; }
+
+.hero { position: relative; min-height: 760px; padding: 86px 0 76px; background: linear-gradient(90deg, var(--cream) 0 57%, #eee6d8 57%); }
+.hero::before { content: "21"; position: absolute; left: -20px; bottom: -168px; font: 700 440px/1 Georgia, serif; color: rgba(24,59,43,.045); }
+.heroGrid { position: relative; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 54px; }
+.heroCopy { position: relative; z-index: 2; }
+.lead { max-width: 650px; margin: 28px 0 26px; color: #514b44; font-size: 1.13rem; }
+.quickBenefits { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; margin: 0 0 28px; list-style: none; font-size: .94rem; font-weight: 700; }
+.quickBenefits li { display: flex; align-items: center; gap: 8px; }
+.priceLine { display: grid; grid-template-columns: auto 1fr; align-items: end; width: max-content; margin: 0 0 22px; }
+.priceLine span { grid-column: 1 / -1; color: var(--muted); font-size: .85rem; }
+.priceLine strong { font: 500 2.8rem/1 Georgia, serif; color: var(--forest); }
+.priceLine small { margin: 0 0 4px 10px; color: var(--muted); }
+.heroVisual { position: relative; display: grid; place-items: center; min-height: 570px; }
+.imageHalo { position: absolute; width: 460px; height: 460px; border-radius: 50%; background: #e5dac8; }
+.mockup { position: relative; z-index: 1; width: 112%; max-width: none; mix-blend-mode: multiply; filter: drop-shadow(0 28px 24px rgba(36,27,18,.15)); }
+.editionTag { position: absolute; z-index: 2; right: 2%; bottom: 7%; display: flex; flex-direction: column; padding: 14px 18px; background: var(--forest); color: white; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+.editionTag b { color: var(--gold); font-size: .75rem; letter-spacing: .18em; }
+.editionTag span { font-size: .82rem; }
+
+.recognition { background: var(--paper); }
+.recognitionLayout { display: grid; grid-template-columns: .78fr 1.22fr; gap: 78px; align-items: center; }
+.recognitionPhoto { position: relative; height: 680px; }
+.recognitionPhoto img { width: 100%; height: 100%; object-fit: cover; }
+.photoCaption { position: absolute; right: -24px; bottom: 34px; width: 235px; padding: 19px 22px; background: var(--forest); color: white; font: 500 1.05rem/1.35 Georgia, serif; }
+.recognition h2 { max-width: 650px; margin-bottom: 38px; }
+.recognitionList { border-top: 1px solid var(--line); }
+.recognitionList article { display: grid; grid-template-columns: 48px 1fr; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.recognitionList span { color: var(--gold); font-family: Georgia, serif; font-size: 1.3rem; }
+.recognitionList p { margin: 0; }
+.transitionText { margin-top: 30px; color: var(--forest); font: 500 1.25rem/1.5 Georgia, serif; }
+
+.darkSection { background: var(--forest-deep); color: #f5f0e6; }
+.split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 76px; align-items: center; }
+.solution h2 { margin-bottom: 28px; }
+.solution p:not(.eyebrow,.methodLabel) { color: #d3d9d2; }
+.solution .cta { margin-top: 14px; }
+.methodCard { padding: 42px; border: 1px solid rgba(195,154,85,.4); background: rgba(255,255,255,.035); }
+.methodLabel { color: var(--gold); font-size: .72rem; font-weight: 800; letter-spacing: .2em; }
+.methodCard ol { display: grid; gap: 0; margin: 18px 0 0; padding: 0; list-style: none; }
+.methodCard li { display: grid; grid-template-columns: 82px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.methodCard li>b { color: var(--gold); font: 500 1.22rem Georgia, serif; }
+.methodCard li span { color: #cbd1cb; }
+.methodCard li strong { display: block; margin-bottom: 3px; color: white; }
+
+.benefits { background: var(--cream); }
+.sectionIntro { max-width: 660px; margin-bottom: 48px; }
+.sectionIntro h2 { margin-bottom: 20px; }
+.sectionIntro>p:last-child { color: var(--muted); }
+.sectionIntro.centered { margin: 0 auto 52px; text-align: center; }
+.benefitGrid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.benefitGrid article { min-height: 240px; padding: 30px; background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.benefitGrid span { display: block; color: var(--gold); font-family: Georgia, serif; font-size: 1.25rem; }
+.benefitGrid h3 { margin: 24px 0 12px; color: var(--forest); }
+.benefitGrid p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+.contentSection { background: var(--paper); }
+.contentGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.contentGrid article { display: grid; grid-template-columns: 58px 1fr; gap: 18px; padding: 28px; border: 1px solid var(--line); }
+.contentGrid article>span { color: var(--terracotta); font: 500 1.2rem Georgia, serif; }
+.contentGrid h3 { margin-bottom: 9px; }
+.contentGrid p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+.photoBreak { padding: 0; background: #ebe2d3; }
+.photoBreakGrid { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; gap: 84px; }
+.photoTall { height: 640px; }
+.photoTall img { width: 100%; height: 100%; object-fit: cover; }
+.photoBreakCopy { padding: 70px 0; max-width: 610px; }
+.photoBreakCopy h2 { margin-bottom: 26px; }
+.photoBreakCopy>p:not(.eyebrow) { color: var(--muted); }
+blockquote { margin: 34px 0 0; padding: 20px 0 20px 25px; border-left: 3px solid var(--terracotta); color: var(--forest); font: italic 1.28rem/1.5 Georgia, serif; }
+
+.preview { background: #1b1814; color: var(--cream); }
+.preview .sectionIntro>p:last-child { color: #c5beb4; }
+.previewGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; align-items: center; }
+.previewGrid figure { margin: 0; transform: rotate(-1deg); }
+.previewGrid figure:nth-child(even) { transform: rotate(1deg); }
+.previewGrid figure.featured { transform: translateY(-16px); }
+.previewGrid img { display: block; width: 100%; border: 7px solid #f3eadc; box-shadow: 0 20px 35px rgba(0,0,0,.35); }
+.previewGrid figcaption { padding: 12px 4px 0; color: #d0c7ba; font-size: .74rem; text-align: center; }
+
+.fit { background: var(--paper); }
+.fitGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.fitPhoto { height: 700px; }
+.fitPhoto img { width: 100%; height: 100%; object-fit: cover; }
+.fitCopy h2 { margin-bottom: 30px; }
+.fitCopy ul, .finalCopy ul { display: grid; gap: 14px; padding: 0; margin: 0 0 34px; list-style: none; }
+.fitCopy li, .finalCopy li { display: flex; align-items: center; gap: 12px; }
+.fitCopy h3 { margin: 34px 0 10px; color: var(--forest); }
+.fitCopy>p:not(.eyebrow) { color: var(--muted); }
+
+.trustSection { padding-top: 0; background: var(--paper); }
+.trustGrid { display: grid; grid-template-columns: 1.15fr .85fr; border: 1px solid var(--line); }
+.authorCard { display: grid; grid-template-columns: 110px 1fr; gap: 28px; padding: 42px; background: var(--cream); }
+.authorMark { display: grid; place-items: center; width: 110px; height: 110px; border-radius: 50%; background: var(--forest); color: var(--gold); font: 500 2rem Georgia, serif; }
+.authorCard h2 { font-size: 2.6rem; margin-bottom: 12px; }
+.authorCard p:last-child { margin: 0; color: var(--muted); }
+.transparency { padding: 42px; background: var(--forest); color: white; }
+.transparency h3 { margin-bottom: 16px; color: var(--gold); }
+.transparency p { margin: 0; color: #d4dbd5; }
+
+.offer { background: var(--forest-deep); color: white; }
+.offerWrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; }
+.offerProducts { position: relative; min-height: 660px; }
+.offerBook { position: absolute; left: -6%; top: 50%; width: 88%; transform: translateY(-50%); filter: drop-shadow(0 26px 26px rgba(0,0,0,.4)); }
+.offerApp { position: absolute; right: 2%; bottom: 0; width: 40%; border: 1px solid rgba(195,154,85,.55); box-shadow: 0 22px 30px rgba(0,0,0,.35); }
+.offerCopy h2 { margin-bottom: 32px; }
+.included { display: grid; gap: 18px; margin-bottom: 30px; }
+.included article { display: grid; grid-template-columns: 28px 1fr; gap: 13px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.13); }
+.included .check { background: var(--gold); color: var(--forest-deep); }
+.included h3 { margin-bottom: 6px; font-size: 1.15rem; }
+.included p { margin: 0; color: #cbd2cc; font-size: .9rem; }
+.offerPrice { display: flex; flex-direction: column; margin-bottom: 24px; }
+.offerPrice span { color: #cbd2cc; font-size: .82rem; }
+.offerPrice strong { color: var(--gold); font: 500 3.6rem/1 Georgia, serif; }
+.offerPrice small { color: #cbd2cc; }
+
+.guarantee { background: var(--cream); }
+.guaranteeGrid { display: grid; grid-template-columns: 210px 1fr; gap: 70px; align-items: center; max-width: 900px; }
+.guaranteeSeal { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 200px; height: 200px; border: 1px solid var(--gold); border-radius: 50%; color: var(--forest); text-align: center; }
+.guaranteeSeal strong { font: 500 4.4rem/1 Georgia, serif; }
+.guaranteeSeal span { font-size: .7rem; font-weight: 800; letter-spacing: .14em; line-height: 1.5; }
+.guarantee h2 { margin-bottom: 20px; }
+.guarantee p:last-child { margin: 0; color: var(--muted); }
+
+.faq { background: var(--paper); }
+.faqGrid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; }
+.faqList { border-top: 1px solid var(--line); }
+.faqList details { border-bottom: 1px solid var(--line); }
+.faqList summary { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; cursor: pointer; color: var(--forest); font-weight: 700; list-style: none; }
+.faqList summary::-webkit-details-marker { display: none; }
+.faqList summary span { color: var(--terracotta); font-size: 1.25rem; transition: transform .2s; }
+.faqList details[open] summary span { transform: rotate(45deg); }
+.faqList details p { padding: 0 38px 20px 0; color: var(--muted); }
+
+.finalCall { background: #1b1814; color: white; }
+.finalGrid { display: grid; grid-template-columns: .8fr 1.2fr; min-height: 720px; align-items: stretch; }
+.finalPhoto { margin-left: calc((1160px - 100vw) / 2); min-width: 0; }
+.finalPhoto img { width: 100%; height: 100%; object-fit: cover; }
+.finalCopy { display: flex; flex-direction: column; justify-content: center; padding: 80px 0 80px 80px; }
+.finalCopy h2 { margin-bottom: 32px; max-width: 680px; }
+.finalCopy .check { background: var(--gold); color: var(--forest-deep); }
+.finalPrice { display: flex; align-items: end; gap: 12px; margin-bottom: 24px; }
+.finalPrice span { padding-bottom: 8px; color: #c8c2b8; }
+.finalPrice strong { color: var(--gold); font: 500 3.3rem/1 Georgia, serif; }
+
+.footer { padding: 48px 0 100px; background: #0d2018; color: #c8c3b8; font-size: .8rem; }
+.footerTop { display: flex; justify-content: space-between; gap: 40px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.footerTop strong { color: var(--gold); letter-spacing: .12em; }
+.footerTop p { margin: 7px 0 0; }
+.footerTop div:last-child { display: flex; flex-direction: column; align-items: flex-end; }
+.footerTop b { color: white; }
+.legal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 24px; }
+.legal details { border-bottom: 1px solid rgba(255,255,255,.14); }
+.legal summary { padding: 12px 0; color: white; cursor: pointer; }
+.legal details p { color: #aeb8b0; }
+.legalNote { max-width: 760px; margin: 26px auto 0; color: #93a096; font-size: .72rem; text-align: center; }
+.mobileBar { display: none; }
+
+@media (max-width: 960px) {
+  .section { padding: 80px 0; }
+  .hero { padding-top: 60px; background: var(--cream); }
+  .heroGrid, .split, .recognitionLayout, .fitGrid, .offerWrap { grid-template-columns: 1fr; gap: 46px; }
+  .heroCopy { text-align: center; }
+  .lead { margin-inline: auto; }
+  .quickBenefits { justify-content: center; }
+  .priceLine { margin-inline: auto; text-align: left; }
+  .heroVisual { min-height: 0; }
+  .mockup { width: 100%; }
+  .imageHalo { width: min(520px, 72vw); height: min(520px, 72vw); }
+  .recognitionPhoto, .fitPhoto { height: 560px; }
+  .recognitionPhoto img { object-position: center 38%; }
+  .photoCaption { right: 20px; }
+  .benefitGrid { grid-template-columns: repeat(2, 1fr); }
+  .photoBreakGrid { grid-template-columns: .85fr 1.15fr; gap: 46px; }
+  .previewGrid { grid-template-columns: repeat(3, 1fr); }
+  .previewGrid figure.featured { transform: none; }
+  .trustGrid, .faqGrid { grid-template-columns: 1fr; gap: 45px; }
+  .offerProducts { min-height: 560px; }
+  .offerBook { left: 2%; width: 75%; }
+  .offerApp { right: 10%; width: 30%; }
+  .finalGrid { grid-template-columns: 1fr 1fr; }
+  .finalPhoto { margin-left: -20px; }
+  .finalCopy { padding-left: 48px; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 17px; padding-bottom: 74px; }
+  .shell { width: min(100% - 30px, 1160px); }
+  .section { padding: 68px 0; }
+  .hero { min-height: 0; padding: 45px 0 54px; }
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.25rem; }
+  .lead { font-size: 1.05rem; }
+  .quickBenefits { display: grid; justify-content: start; width: max-content; margin-inline: auto; text-align: left; }
+  .cta { width: 100%; min-height: 64px; }
+  .trust { font-size: .72rem; text-align: center; }
+  .heroVisual { margin-top: -12px; }
+  .editionTag { right: 0; bottom: 0; }
+  .recognitionPhoto, .fitPhoto { height: 470px; }
+  .photoCaption { right: 12px; bottom: 16px; }
+  .recognition h2 { font-size: 2.18rem; }
+  .recognitionList article { grid-template-columns: 38px 1fr; }
+  .methodCard { padding: 26px 20px; }
+  .methodCard li { grid-template-columns: 66px 1fr; }
+  .benefitGrid, .contentGrid { grid-template-columns: 1fr; }
+  .benefitGrid article { min-height: 0; padding: 25px; }
+  .photoBreakGrid { width: 100%; grid-template-columns: 1fr; gap: 0; }
+  .photoTall { height: 470px; }
+  .photoBreakCopy { width: calc(100% - 30px); margin-inline: auto; padding: 56px 0; }
+  .previewGrid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .previewGrid figure, .previewGrid figure:nth-child(even) { transform: none; }
+  .previewGrid figure:last-child { grid-column: 1 / -1; width: calc(50% - 7px); margin-inline: auto; }
+  .authorCard { grid-template-columns: 1fr; padding: 28px; }
+  .authorMark { width: 82px; height: 82px; }
+  .transparency { padding: 28px; }
+  .offerProducts { min-height: 470px; }
+  .offerBook { left: -10%; width: 100%; }
+  .offerApp { right: 0; width: 38%; }
+  .offerPrice strong { font-size: 3.2rem; }
+  .guaranteeGrid { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+  .guaranteeSeal { margin-inline: auto; }
+  .faqGrid { gap: 32px; }
+  .finalGrid { width: 100%; grid-template-columns: 1fr; min-height: 0; }
+  .finalPhoto { height: 460px; margin: 0; }
+  .finalCopy { padding: 58px 15px 70px; }
+  .footer { padding-bottom: 46px; }
+  .footerTop { display: grid; text-align: center; }
+  .footerTop div:last-child { align-items: center; }
+  .legal { grid-template-columns: 1fr; gap: 6px; }
+  .mobileBar { position: fixed; z-index: 50; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 74px; padding: 10px 14px; border-top: 1px solid #ddcfbe; background: rgba(255,253,248,.96); box-shadow: 0 -8px 24px rgba(38,35,31,.12); backdrop-filter: blur(12px); }
+  .mobileBar>div { display: flex; flex-direction: column; flex: 0 0 auto; }
+  .mobileBar>div span { color: var(--muted); font-size: .67rem; }
+  .mobileBar>div strong { color: var(--forest); font: 500 1.4rem/1 Georgia, serif; }
+  .mobileBar .cta { width: auto; min-height: 50px; }
+}</style>
+</head>
+<body>
+<link rel="preload" as="image" href="/assets/metodo-mockup.webp"/><link rel="preload" as="image" href="/assets/mulher-inicio.webp"/><link rel="preload" as="image" href="/assets/caixas-doacao.webp"/><link rel="preload" as="image" href="/assets/previa-sessao.webp"/><link rel="preload" as="image" href="/assets/previa-mapa.webp"/><link rel="preload" as="image" href="/assets/previa-dia-1.webp"/><link rel="preload" as="image" href="/assets/previa-rotina.webp"/><link rel="preload" as="image" href="/assets/previa-reset.webp"/><link rel="preload" as="image" href="/assets/guarda-roupa-organizado.webp"/><link rel="preload" as="image" href="/assets/metodo-livro.webp"/><link rel="preload" as="image" href="/assets/app-companheiro.webp"/><link rel="preload" as="image" href="/assets/mulher-casa-organizada.webp"/><main><section class="hero"><div class="shell heroGrid"><div class="heroCopy"><p class="eyebrow">ORGANIZAÇÃO PRÁTICA · 21 DIAS</p><h1>Organize sua casa em 20 minutos por dia, sem maratonas.</h1><p class="lead">Um guia digital com um plano simples para reduzir excessos, criar lugares claros e organizar uma área por dia — mesmo com uma rotina cheia.</p><ul class="quickBenefits" aria-label="Benefícios principais"><li><span class="check" aria-hidden="true">✓</span> 21 sessões guiadas</li><li><span class="check" aria-hidden="true">✓</span> Método Descarte 3X</li><li><span class="check" aria-hidden="true">✓</span> Rotinas de manutenção</li></ul><div class="priceLine"><span>Por apenas</span><strong>R$ 39,90</strong><small>pagamento único</small></div><a class="cta" href="#oferta">QUERO ACESSAR O EBOOK<span aria-hidden="true">→</span></a><p class="trust">Acesso digital pela Kiwify · Pagamento seguro · Garantia de 7 dias</p></div><div class="heroVisual"><div class="imageHalo" aria-hidden="true"></div><img src="/assets/metodo-mockup.webp" alt="Método Casa em Ordem em livro, tablet e celular" width="1024" height="694" class="mockup"/><div class="editionTag"><b>PDF</b><span>Acesso digital</span></div></div></div></section><section class="recognition section"><div class="shell recognitionLayout"><div class="recognitionPhoto"><img src="/assets/mulher-inicio.webp" alt="Mulher iniciando uma sessão curta de organização" width="768" height="1376"/><span class="photoCaption">Você não precisa resolver tudo hoje.</span></div><div><p class="eyebrow">UMA ROTINA MAIS LEVE COMEÇA COM CLAREZA</p><h2>Você se reconhece em alguma destas situações?</h2><div class="recognitionList"><article><span>01</span><p>Você tenta resolver a casa inteira e cansa antes de terminar.</p></article><article><span>02</span><p>Mesas e bancadas acumulam objetos sem um lugar claro.</p></article><article><span>03</span><p>A doação fica parada e a bagunça apenas muda de canto.</p></article><article><span>04</span><p>Você quer uma casa funcional, mas não tem horas livres.</p></article></div><p class="transitionText">O caminho pode ser menor: uma área, uma decisão de cada vez e um fechamento visível.</p></div></div></section><section class="solution section darkSection"><div class="shell split"><div><p class="eyebrow gold">O DIFERENCIAL DO MÉTODO</p><h2>Menos decisões abertas. Mais progresso visível.</h2><p>O problema de muitas tentativas não é falta de vontade. É tentar limpar, decidir e reorganizar tudo ao mesmo tempo, sem um limite claro.</p><p>O <strong>Método Casa em Ordem</strong> divide cada dia em uma sessão curta. Você sabe onde começar, o que fazer e quando parar.</p><a class="cta" href="#oferta">QUERO COMEÇAR MEUS 21 DIAS<span aria-hidden="true">→</span></a></div><div class="methodCard"><p class="methodLabel">A SESSÃO DE 20 MINUTOS</p><ol><li><b>02 min</b><span><strong>Preparar</strong>Escolha uma superfície pequena e separe as caixas.</span></li><li><b>12 min</b><span><strong>Triar 3X</strong>Um item por vez: Manter, Doar ou Lixo.</span></li><li><b>04 min</b><span><strong>Devolver</strong>Leve o que ficou para um endereço simples.</span></li><li><b>02 min</b><span><strong>Fechar</strong>Retire o descarte e registre uma vitória.</span></li></ol></div></div></section><section class="benefits section"><div class="shell"><div class="sectionIntro"><p class="eyebrow">O QUE MUDA NA PRÁTICA</p><h2>Um sistema que cabe na vida real.</h2><p>O objetivo não é uma casa vazia. É reduzir os passos entre usar um objeto e conseguir guardá-lo.</p></div><div class="benefitGrid"><article><span>01</span><h3>Comece sem se sobrecarregar</h3><p>Use uma sessão com começo, meio e fim — e pare quando o cronômetro tocar.</p></article><article><span>02</span><h3>Decida com mais clareza</h3><p>Separe cada item entre Manter, Doar ou Lixo, sem criar novas pilhas pela casa.</p></article><article><span>03</span><h3>Organize por áreas</h3><p>Siga uma rota de 21 dias que passa por espaços comuns, pessoais e sistemas da casa.</p></article><article><span>04</span><h3>Dê endereço ao que fica</h3><p>Crie lugares simples, visíveis e próximos do ponto de uso para facilitar a devolução.</p></article><article><span>05</span><h3>Encerre o descarte</h3><p>Leve lixo, reciclagem e doações para fora do fluxo da casa, evitando bagunça em trânsito.</p></article><article><span>06</span><h3>Proteja o avanço</h3><p>Aplique fechamentos diários, uma revisão semanal e um reset mensal possível.</p></article></div></div></section><section class="contentSection section"><div class="shell"><div class="sectionIntro centered"><p class="eyebrow">POR DENTRO DO EBOOK</p><h2>Conteúdo escolhido para fazer você agir.</h2></div><div class="contentGrid"><article><span>01</span><div><h3>Fundamento sem culpa</h3><p>Entenda por que excesso visual compete por atenção e troque julgamento por uma ação pequena.</p></div></article><article><span>02</span><div><h3>Método Descarte 3X</h3><p>Use três destinos objetivos — Manter, Doar e Lixo — durante os 12 minutos de triagem.</p></div></article><article><span>03</span><div><h3>Filtro de cinco perguntas</h3><p>Encerre dúvidas sobre uso, função, espaço disponível e custo de manutenção.</p></div></article><article><span>04</span><div><h3>Mapa completo dos 21 dias</h3><p>Visualize as três semanas e execute somente a área indicada para aquele dia.</p></div></article><article><span>05</span><div><h3>21 páginas de ação</h3><p>Conte com tarefas, critério de conclusão, registro 3X e espaço para anotar sua vitória.</p></div></article><article><span>06</span><div><h3>Rotinas de manutenção</h3><p>Continue com fechamento diário de 10 minutos, blocos semanais e revisão mensal.</p></div></article></div></div></section><section class="photoBreak"><div class="shell photoBreakGrid"><div class="photoTall"><img src="/assets/caixas-doacao.webp" alt="Caixas reais sendo identificadas para doação" width="768" height="1376"/></div><div class="photoBreakCopy"><p class="eyebrow">DESCARTE 3X</p><h2>O descarte só termina quando sai do fluxo da casa.</h2><p>O guia ajuda a evitar pilhas intermediárias: cada item recebe um destino, e a sessão termina com lixo, reciclagem e doação encaminhados.</p><blockquote>“Uma sacola esquecida no corredor ainda é bagunça em trânsito.”</blockquote></div></div></section><section class="preview section"><div class="shell"><div class="sectionIntro centered"><p class="eyebrow gold">PRÉVIA REAL DO MATERIAL</p><h2>Veja como cada etapa foi organizada.</h2><p>Estas páginas pertencem ao eBook original e mostram o plano, o rastreador e as rotinas de continuidade.</p></div><div class="previewGrid"><figure><img src="/assets/previa-sessao.webp" alt="Página real com a sessão de 20 minutos" width="707" height="1000"/><figcaption>Sessão de 20 minutos</figcaption></figure><figure class="featured"><img src="/assets/previa-mapa.webp" alt="Página real com o mapa dos 21 dias" width="707" height="1000"/><figcaption>Mapa completo da jornada</figcaption></figure><figure><img src="/assets/previa-dia-1.webp" alt="Página real do primeiro dia do cronograma" width="707" height="1000"/><figcaption>Ações e registro diário</figcaption></figure><figure><img src="/assets/previa-rotina.webp" alt="Página real com a rotina diária de manutenção" width="707" height="1000"/><figcaption>Fechamento de 10 minutos</figcaption></figure><figure><img src="/assets/previa-reset.webp" alt="Página real com as perguntas do reset mensal" width="707" height="1000"/><figcaption>Reset mensal</figcaption></figure></div></div></section><section class="fit section"><div class="shell fitGrid"><div class="fitPhoto"><img src="/assets/guarda-roupa-organizado.webp" alt="Mulher diante de um guarda-roupa organizado" width="768" height="1376"/></div><div class="fitCopy"><p class="eyebrow">PARA QUEM É</p><h2>Este material é para você que…</h2><ul><li><span class="check" aria-hidden="true">✓</span> precisa de um plano curto e objetivo;</li><li><span class="check" aria-hidden="true">✓</span> quer reduzir excessos sem se julgar;</li><li><span class="check" aria-hidden="true">✓</span> prefere organizar uma área por vez;</li><li><span class="check" aria-hidden="true">✓</span> busca sistemas simples de manter.</li></ul><h3>Talvez não seja para quem…</h3><p>Procura uma transformação instantânea, uma casa perfeita ou um serviço de organização executado por outra pessoa.</p><a class="cta" href="#oferta">QUERO ACESSAR O EBOOK<span aria-hidden="true">→</span></a></div></div></section><section class="trustSection section"><div class="shell trustGrid"><div class="authorCard"><div class="authorMark">JB</div><div><p class="eyebrow">AUTORIA E TRANSPARÊNCIA</p><h2>J. Barreto</h2><p>Autor do Método Casa em Ordem e criador da Mergulho Digital.</p></div></div><div class="transparency"><h3>O que você recebe, sem exageros</h3><p>Um guia digital estruturado em quatro capítulos, com método, 21 sessões, registros de progresso e rotinas de manutenção. Não apresentamos depoimentos inventados, estatísticas sem fonte ou promessas de perfeição.</p></div></div></section><section id="oferta" class="offer section"><div class="shell offerWrap"><div class="offerProducts"><img src="/assets/metodo-livro.webp" alt="Livro Método Casa em Ordem" width="750" height="692" class="offerBook"/><img src="/assets/app-companheiro.webp" alt="Bônus Companheiro de 21 dias" width="422" height="596" class="offerApp"/></div><div class="offerCopy"><p class="eyebrow gold">OFERTA DIGITAL</p><h2>Comece sua jornada de 21 dias.</h2><div class="included"><article><span class="check" aria-hidden="true">✓</span><div><h3>eBook Método Casa em Ordem</h3><p>PDF com o método completo, plano diário e manutenção.</p></div></article><article><span class="check" aria-hidden="true">✓</span><div><h3>Bônus: Companheiro de 21 Dias</h3><p>Aplicativo para cronometrar sessões, contar decisões e acompanhar o progresso.</p></div></article></div><div class="offerPrice"><span>Pagamento único</span><strong>R$ 39,90</strong><small>Parcelamento disponível no checkout</small></div><a class="cta" href="#oferta">QUERO ACESSAR O EBOOK<span aria-hidden="true">→</span></a><p class="trust light">Acesso pela Kiwify · Produto digital · Garantia de 7 dias</p></div></div></section><section class="guarantee section"><div class="shell guaranteeGrid"><div class="guaranteeSeal"><strong>7</strong><span>DIAS DE<br/>GARANTIA</span></div><div><p class="eyebrow">DECIDA COM TRANQUILIDADE</p><h2>Você tem 7 dias de garantia.</h2><p>Depois da compra, você poderá acessar o material e conhecer a proposta. Se decidir solicitar o reembolso dentro do prazo informado, siga as condições e o procedimento apresentados na Kiwify.</p></div></div></section><section class="faq section"><div class="shell faqGrid"><div><p class="eyebrow">PERGUNTAS FREQUENTES</p><h2>Tudo o que você precisa saber.</h2></div><div class="faqList"><details><summary>Como receberei o eBook?<span aria-hidden="true">+</span></summary><p>Após a confirmação da compra, o acesso digital será enviado e disponibilizado pela Kiwify.</p></details><details><summary>O produto é físico?<span aria-hidden="true">+</span></summary><p>Não. Você receberá um eBook em PDF e o bônus digital. Nenhum item físico será enviado.</p></details><details><summary>Posso ler no celular?<span aria-hidden="true">+</span></summary><p>Sim. O PDF pode ser aberto em celular, tablet ou computador compatível.</p></details><details><summary>Preciso já saber organizar?<span aria-hidden="true">+</span></summary><p>Não. O material começa pelo preparo e conduz cada sessão com ações objetivas.</p></details><details><summary>Posso parcelar?<span aria-hidden="true">+</span></summary><p>Sim. As opções de parcelamento e formas de pagamento disponíveis aparecerão no checkout da Kiwify.</p></details><details><summary>Como funciona a garantia?<span aria-hidden="true">+</span></summary><p>Você terá 7 dias de garantia, conforme as condições apresentadas no momento da compra.</p></details><details><summary>Como falo com o suporte?<span aria-hidden="true">+</span></summary><p>Envie uma mensagem para mergulhodigital01@gmail.com.</p></details></div></div></section><section class="finalCall"><div class="shell finalGrid"><div class="finalPhoto"><img src="/assets/mulher-casa-organizada.webp" alt="Mulher descansando em uma sala organizada" width="768" height="1376"/></div><div class="finalCopy"><p class="eyebrow gold">UMA ÁREA POR DIA</p><h2>Sua casa não precisa ficar perfeita. Precisa funcionar para você.</h2><ul><li><span class="check" aria-hidden="true">✓</span> 20 minutos por sessão</li><li><span class="check" aria-hidden="true">✓</span> Plano de 21 dias</li><li><span class="check" aria-hidden="true">✓</span> Bônus digital incluído</li></ul><div class="finalPrice"><span>Por</span><strong>R$ 39,90</strong></div><a class="cta" href="#oferta">QUERO ACESSAR O EBOOK<span aria-hidden="true">→</span></a><p class="trust light">Pagamento seguro · Garantia de 7 dias · Acesso digital</p></div></div></section><footer class="footer"><div class="shell footerTop"><div><strong>MERGULHO DIGITAL</strong><p>© 2026 · J. Barreto. Todos os direitos reservados.</p></div><div><b>Suporte</b><a href="mailto:mergulhodigital01@gmail.com">mergulhodigital01@gmail.com</a></div></div><div class="shell legal"><details><summary>Política de Privacidade</summary><p>Os dados informados no processo de compra são tratados pela plataforma de pagamento conforme seus termos. O suporte utiliza o e-mail apenas para atender à solicitação recebida.</p></details><details><summary>Termos de Uso</summary><p>Material digital para uso pessoal. É proibida a reprodução, revenda ou distribuição sem autorização do titular dos direitos.</p></details><details><summary>Política de Reembolso</summary><p>A oferta inclui garantia de 7 dias. Solicitações devem seguir o procedimento e as condições apresentados pela Kiwify.</p></details></div><p class="legalNote">Material educacional de organização doméstica. Os resultados variam conforme o uso e a realidade de cada casa.</p></footer><div class="mobileBar"><div><span>Por apenas</span><strong>R$ 39,90</strong></div><a class="cta compact" href="#oferta">QUERO AGORA<span aria-hidden="true">→</span></a></div></main>
+</body>
+</html>
