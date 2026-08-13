@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17140F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Casa em Ordem · Companheiro de 21 dias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#17140F;
+    --tinta-2:#221E17;
+    --tinta-3:#2D281F;
+    --osso:#F2ECE1;
+    --osso-fraco:#A8A296;
+    --latao:#C39A55;
+    --latao-fraco:#7A6234;
+    --salvia:#8B9A78;
+    --telha:#B4664B;
+    --linha:rgba(242,236,225,.14);
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
+    --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --r:14px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--tinta);
+    color:var(--osso);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.5;
+    padding-bottom:96px;
+    background-image:radial-gradient(120% 60% at 50% 0%,rgba(195,154,85,.10),transparent 60%);
+    background-repeat:no-repeat;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 18px}
+
+  /* ---------- topo ---------- */
+  header{padding:22px 0 10px;text-align:center}
+  .marca{font-family:var(--sans);font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--latao)}
+  .marca span{color:var(--osso-fraco)}
+  .barra-topo{margin-top:14px;height:3px;background:var(--tinta-3);border-radius:99px;overflow:hidden}
+  .barra-topo i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--latao-fraco),var(--latao));transition:width .5s ease}
+  .barra-legenda{display:flex;justify-content:space-between;margin-top:7px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--osso-fraco)}
+
+  /* ---------- cartões ---------- */
+  .card{background:var(--tinta-2);border:1px solid var(--linha);border-radius:var(--r);padding:18px;margin:14px 0}
+  .rotulo{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--latao);margin-bottom:10px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
+  h1{font-size:30px;line-height:1.14;letter-spacing:-.01em}
+  h2{font-size:22px;line-height:1.2}
+  h3{font-size:18px}
+  .sub{font-family:var(--serif);font-style:italic;color:var(--osso-fraco);font-size:17px;margin-top:8px}
+  p{margin:8px 0 0}
+  .dim{color:var(--osso-fraco);font-size:14px}
+
+  /* ---------- cabeçalho do dia ---------- */
+  .dia-topo{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .dia-num{font-family:var(--serif);font-size:13px;letter-spacing:.2em;color:var(--latao)}
+  .semana{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--osso-fraco);text-align:right;max-width:46%}
+
+  /* ---------- timer (elemento-assinatura) ---------- */
+  .timer{text-align:center;padding-top:6px}
+  .anel{position:relative;width:212px;height:212px;margin:6px auto 0}
+  .anel svg{transform:rotate(-90deg);display:block}
+  .anel-fundo{stroke:var(--tinta-3)}
+  .anel-frente{stroke:var(--latao);transition:stroke-dashoffset .95s linear,stroke .4s}
+  .anel-txt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .relogio{font-family:var(--serif);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+  .fase{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--latao);margin-top:9px}
+  .fase-desc{font-size:13px;color:var(--osso-fraco);margin-top:6px;padding:0 26px;line-height:1.35}
+  .blocos{display:flex;gap:5px;margin:16px 0 4px}
+  .bloco{flex:1;text-align:center}
+  .bloco i{display:block;height:6px;border-radius:99px;background:var(--tinta-3);overflow:hidden;position:relative}
+  .bloco i b{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--latao-fraco);border-radius:99px}
+  .bloco.feito i b{width:100%;background:var(--latao-fraco)}
+  .bloco.ativo i b{background:var(--latao)}
+  .bloco span{display:block;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--osso-fraco);margin-top:7px}
+  .bloco.ativo span{color:var(--osso)}
+
+  /* ---------- botões ---------- */
+  .btns{display:flex;gap:10px;margin-top:14px}
+  button{font-family:var(--sans);font-size:14px;cursor:pointer;border-radius:11px;border:1px solid transparent;padding:14px 16px;transition:.18s}
+  button:focus-visible{outline:2px solid var(--latao);outline-offset:2px}
+  .b-primario{flex:2;background:var(--latao);color:#1B160D;font-weight:600;letter-spacing:.04em}
+  .b-primario:active{transform:scale(.98)}
+  .b-secundario{flex:1;background:transparent;border-color:var(--linha);color:var(--osso)}
+  .b-largo{width:100%;display:block}
+  .b-fantasma{background:transparent;border-color:var(--linha);color:var(--osso-fraco);font-size:13px;padding:11px 14px}
+
+  /* ---------- tarefas ---------- */
+  .tarefa{display:flex;gap:13px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--linha);cursor:pointer}
+  .tarefa:last-of-type{border-bottom:0}
+  .marca-box{flex:0 0 24px;height:24px;margin-top:1px;border:1px solid var(--latao-fraco);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#1B160D;background:transparent;transition:.18s}
+  .tarefa.ok .marca-box{background:var(--latao);border-color:var(--latao)}
+  .tarefa.ok .txt{color:var(--osso-fraco);text-decoration:line-through;text-decoration-color:var(--latao-fraco)}
+  .txt{font-size:15px;line-height:1.4}
+
+  /* ---------- registro 3x ---------- */
+  .contadores{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:4px}
+  .cont{background:var(--tinta-3);border-radius:12px;padding:11px 6px;text-align:center}
+  .cont .nome{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--osso-fraco)}
+  .cont .valor{font-family:var(--serif);font-size:30px;line-height:1.1;margin:3px 0 6px;font-variant-numeric:tabular-nums}
+  .cont.manter .valor{color:var(--osso)}
+  .cont.doar .valor{color:var(--salvia)}
+  .cont.lixo .valor{color:var(--telha)}
+  .pm{display:flex;gap:6px;justify-content:center}
+  .pm button{flex:1;padding:9px 0;font-size:17px;background:var(--tinta-2);border:1px solid var(--linha);color:var(--osso);border-radius:8px}
+  .interruptor{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;background:var(--tinta-3);border-radius:12px;padding:13px 14px;cursor:pointer}
+  .interruptor .p{font-size:14px;line-height:1.3}
+  .chave{flex:0 0 52px;height:29px;border-radius:99px;background:#3A3428;position:relative;transition:.2s}
+  .chave b{position:absolute;top:3px;left:3px;width:23px;height:23px;border-radius:99px;background:var(--osso-fraco);transition:.2s}
+  .interruptor.on .chave{background:var(--latao-fraco)}
+  .interruptor.on .chave b{left:26px;background:var(--osso)}
+
+  textarea,input[type=text]{width:100%;background:var(--tinta-3);border:1px solid var(--linha);border-radius:11px;color:var(--osso);font-family:var(--serif);font-size:16px;padding:13px;resize:vertical}
+  textarea::placeholder,input::placeholder{color:#6E685C;font-style:italic}
+  textarea:focus,input:focus{outline:none;border-color:var(--latao-fraco)}
+
+  /* ---------- jornada ---------- */
+  .grade{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:6px}
+  .cel{aspect-ratio:1;border:1px solid var(--linha);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:14px;color:var(--osso-fraco);background:var(--tinta-3);cursor:pointer}
+  .cel.ok{background:var(--latao);border-color:var(--latao);color:#1B160D;font-weight:500}
+  .cel.hoje{border-color:var(--latao);color:var(--osso)}
+  .placar{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+  .placar div{background:var(--tinta-3);border-radius:12px;padding:12px}
+  .placar .n{font-family:var(--serif);font-size:26px;line-height:1.1}
+  .placar .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--osso-fraco);margin-top:3px}
+  .nota{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+  .nota button{flex:1;min-width:34px;padding:10px 0;background:var(--tinta-3);border:1px solid var(--linha);color:var(--osso-fraco);font-family:var(--serif);font-size:15px;border-radius:9px}
+  .nota button.sel{background:var(--latao);color:#1B160D;border-color:var(--latao)}
+  .campo-rotulo{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--osso-fraco);margin:14px 0 6px}
+
+  /* ---------- rotinas ---------- */
+  .lista-tempo{margin-top:4px}
+  .lt{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--linha)}
+  .lt:last-child{border-bottom:0}
+  .lt .min{flex:0 0 46px;font-family:var(--serif);font-size:13px;color:var(--latao);letter-spacing:.06em}
+  .aviso{font-size:12px;color:var(--osso-fraco);line-height:1.45;border-left:2px solid var(--latao-fraco);padding-left:12px;margin-top:14px}
+
+  /* ---------- navegação ---------- */
+  nav{position:fixed;left:0;right:0;bottom:0;background:rgba(23,20,15,.94);backdrop-filter:blur(12px);border-top:1px solid var(--linha);padding:8px 0 max(8px,env(safe-area-inset-bottom));z-index:20}
+  .nav-in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr}
+  .nav-in button{background:transparent;border:0;color:var(--osso-fraco);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:10px 4px;border-radius:0}
+  .nav-in button .ic{display:block;font-family:var(--serif);font-size:19px;margin-bottom:2px;color:inherit}
+  .nav-in button.on{color:var(--latao)}
+  .tela{display:none;animation:sobe .35s ease both}
+  .tela.on{display:block}
+  @keyframes sobe{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  footer{text-align:center;font-size:11px;color:#5F594E;padding:26px 0 8px;line-height:1.6}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="marca">Método Casa em Ordem <span>· Companheiro</span></div>
+    <div class="barra-topo"><i id="barra"></i></div>
+    <div class="barra-legenda"><span>Dia 01</span><span id="barraTxt">0 de 21</span><span>Dia 21</span></div>
+  </header>
+
+  <!-- ====================== HOJE ====================== -->
+  <section class="tela on" id="tela-hoje">
+    <div class="card">
+      <div class="dia-topo">
+        <div class="dia-num" id="diaNum">DIA 01 / 21</div>
+        <div class="semana" id="diaSemana">Semana 1 · Áreas comuns</div>
+      </div>
+      <h1 id="diaTitulo" style="margin-top:10px">Entrada e chaves</h1>
+      <div class="sub" id="diaSub">Crie uma chegada sem tropeços.</div>
+      <div class="btns">
+        <button class="b-secundario" id="btnAnterior">◀ Dia anterior</button>
+        <button class="b-secundario" id="btnProximo">Próximo dia ▶</button>
+      </div>
+    </div>
+
+    <div class="card timer">
+      <div class="rotulo">A sessão de 20 minutos</div>
+      <div class="anel">
+        <svg width="212" height="212" viewBox="0 0 212 212" aria-hidden="true">
+          <circle class="anel-fundo" cx="106" cy="106" r="94" fill="none" stroke-width="7"></circle>
+          <circle class="anel-frente" id="anel" cx="106" cy="106" r="94" fill="none" stroke-width="7"
+                  stroke-linecap="round" stroke-dasharray="590.6" stroke-dashoffset="590.6"></circle>
+        </svg>
+        <div class="anel-txt">
+          <div class="relogio" id="relogio" aria-live="off">20:00</div>
+          <div class="fase" id="fase">Pronta para começar</div>
+        </div>
+      </div>
+      <div class="fase-desc" id="faseDesc">O cronômetro decide o fim da sessão, não você.</div>
+      <div class="blocos" id="blocos"></div>
+      <div class="btns">
+        <button class="b-primario" id="btnTimer">Começar a sessão</button>
+        <button class="b-secundario" id="btnZerar">Zerar</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Ações de hoje</div>
+      <div id="acoes"></div>
+      <div class="aviso" id="prontoQuando"></div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Registro 3X de hoje</div>
+      <p class="dim">Um item. Uma pergunta. Um destino. Toque no + a cada decisão.</p>
+      <div class="contadores">
+        <div class="cont manter"><div class="nome">Manter</div><div class="valor" id="v-manter">0</div>
+          <div class="pm"><button data-c="manter" data-d="-1" aria-label="menos manter">−</button><button data-c="manter" data-d="1" aria-label="mais manter">+</button></div></div>
+        <div class="cont doar"><div class="nome">Doar</div><div class="valor" id="v-doar">0</div>
+          <div class="pm"><button data-c="doar" data-d="-1" aria-label="menos doar">−</button><button data-c="doar" data-d="1" aria-label="mais doar">+</button></div></div>
+        <div class="cont lixo"><div class="nome">Lixo</div><div class="valor" id="v-lixo">0</div>
+          <div class="pm"><button data-c="lixo" data-d="-1" aria-label="menos lixo">−</button><button data-c="lixo" data-d="1" aria-label="mais lixo">+</button></div></div>
+      </div>
+      <div class="interruptor" id="saiu" role="switch" tabindex="0" aria-checked="false">
+        <div class="p">O descarte <b>saiu de casa</b> hoje?</div>
+        <div class="chave"><b></b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Minha vitória de hoje</div>
+      <p class="dim" style="margin-bottom:10px">O que mudou · o que travou · o que farei diferente.</p>
+      <textarea id="nota" rows="4" placeholder="Escreva uma linha. Uma linha já é registro."></textarea>
+      <div class="aviso" id="energia"></div>
+      <button class="b-primario b-largo" id="btnConcluir" style="margin-top:16px">Concluir o Dia 01</button>
+    </div>
+  </section>
+
+  <!-- ====================== JORNADA ====================== -->
+  <section class="tela" id="tela-jornada">
+    <div class="card">
+      <div class="rotulo">Sua posição na jornada</div>
+      <h2>21 sessões, uma por dia</h2>
+      <p class="dim">Se perder um dia, siga para o seguinte. Uma sequência com falhas é melhor que um reinício do zero.</p>
+      <div class="grade" id="grade"></div>
+      <div class="placar">
+        <div><div class="n" id="p-dias">0</div><div class="l">Dias concluídos</div></div>
+        <div><div class="n" id="p-itens">0</div><div class="l">Itens decididos</div></div>
+        <div><div class="n" id="p-doar">0</div><div class="l">Itens para doação</div></div>
+        <div><div class="n" id="p-saidas">0</div><div class="l">Descartes que saíram</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Ponto de partida</div>
+      <h3>Registre sem se julgar</h3>
+      <div class="campo-rotulo">Minha maior dificuldade hoje é</div>
+      <input type="text" id="i-dif" placeholder="Escreva em poucas palavras">
+      <div class="campo-rotulo">A área que mais pesa visualmente é</div>
+      <input type="text" id="i-area" placeholder="Um cômodo, uma superfície">
+      <div class="campo-rotulo">Quando terminar os 21 dias, quero sentir</div>
+      <input type="text" id="i-sentir" placeholder="Uma palavra basta">
+      <div class="campo-rotulo">Quanto a casa apoia sua rotina hoje? (0 a 10)</div>
+      <div class="nota" id="nota-antes"></div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Seu resultado</div>
+      <h3>Compare no fim dos 21 dias</h3>
+      <div class="campo-rotulo">Quanto a casa apoia sua rotina agora? (0 a 10)</div>
+      <div class="nota" id="nota-depois"></div>
+      <div class="campo-rotulo">O que mudou de verdade</div>
+      <textarea id="i-final" rows="3" placeholder="Três linhas sobre o que ficou mais fácil."></textarea>
+      <div class="aviso" id="comparativo">Preencha a nota de antes para ver a comparação.</div>
+    </div>
+  </section>
+
+  <!-- ====================== ROTINAS ====================== -->
+  <section class="tela" id="tela-rotinas">
+    <div class="card timer">
+      <div class="rotulo">Fechamento diário</div>
+      <h2 style="margin-bottom:4px">10 minutos, sempre na mesma ordem</h2>
+      <div class="relogio" id="relogio2" style="font-size:44px;margin-top:14px">10:00</div>
+      <div class="fase" id="fase2">Toque para iniciar</div>
+      <div class="blocos" id="blocos2"></div>
+      <div class="btns">
+        <button class="b-primario" id="btnTimer2">Começar fechamento</button>
+        <button class="b-secundario" id="btnZerar2">Zerar</button>
+      </div>
+      <div class="aviso">Em um dia difícil: guarde cinco itens, retire um lixo e deixe a pia segura. Continuidade vale mais que intensidade.</div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">A hora semanal em blocos</div>
+      <p class="dim">Distribua durante a semana ou faça no mesmo dia. Comece pelas roupas: é o bloco maior e o que mais retorna.</p>
+      <div id="semanal" class="lista-tempo"></div>
+      <button class="b-fantasma b-largo" id="btnSemanal" style="margin-top:14px">Zerar a semana</button>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Reset mensal</div>
+      <h3>Quatro perguntas para corrigir o sistema</h3>
+      <p class="dim">Se a bagunça volta sempre ao mesmo ponto, o problema pode ser o endereço — não você.</p>
+      <div id="mensal"></div>
+    </div>
+
+    <div class="card">
+      <div class="rotulo">Este app</div>
+      <p class="dim">Tudo o que você escreve fica salvo apenas neste aparelho, sem internet e sem cadastro. Para abrir com um toque, use o menu do navegador e escolha <b>Adicionar à tela de início</b>.</p>
+      <button class="b-fantasma b-largo" id="btnApagar" style="margin-top:14px">Apagar meus registros</button>
+      <div class="aviso">Este material é educativo e não diagnostica, previne nem trata condições de saúde. Não mova peso excessivo e interrompa a atividade se houver dor, tontura ou falta de ar.</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 J. Barreto · Mergulho Digital<br>
+    Bônus do Método Casa em Ordem — 21 Dias. Uso pessoal.
+  </footer>
+</div>
+
+<nav>
+  <div class="nav-in">
+    <button class="on" data-tela="hoje"><span class="ic">◈</span>Hoje</button>
+    <button data-tela="jornada"><span class="ic">◷</span>Jornada</button>
+    <button data-tela="rotinas"><span class="ic">◎</span>Rotinas</button>
+  </div>
+</nav>
+
+<script>
+/* ============ 1. DADOS DO GUIA ============ */
+var SEMANAS=["Semana 1 · Áreas comuns","Semana 2 · Espaços pessoais","Semana 3 · Sistemas e fechamento"];
+var DIAS=[
+ {t:"Entrada e chaves",s:"Crie uma chegada sem tropeços e uma saída sem procura.",a:["Retire papéis, sacolas e objetos sem função de chegada.","Defina lugar para chaves, bolsa e correspondência.","Deixe apenas calçados de uso frequente."],p:"Pronto quando: você entra e sai sem mover objetos.",e:"Se sobrar energia: limpe a sola dos calçados mantidos ou troque o forro da bandeja de chaves. Não abra outra área."},
+ {t:"Sala principal",s:"Recupere assentos e circulação.",a:["Esvazie sofá, poltronas e passagem.","Agrupe controles em uma única bandeja.","Reduza enfeites até a limpeza ficar simples."],p:"Pronto quando: todos os assentos podem ser usados.",e:"Se sobrar energia: vire as almofadas e passe um pano nos controles remotos. Não abra outra área."},
+ {t:"Mesa e superfícies",s:"Devolva função às áreas planas.",a:["Escolha uma superfície por vez.","Papéis vão para a caixa do Dia 14.","Itens de outro cômodo entram num cesto de devolução."],p:"Pronto quando: uma superfície fica 80% livre.",e:"Se sobrar energia: separe canetas, carregadores e papéis soltos por função em um pote. Não abra outra área."},
+ {t:"Cozinha: bancadas",s:"Abra espaço para preparar alimentos.",a:["Remova utensílios pouco usados da bancada.","Agrupe café, temperos ou preparo por estação.","Descarte embalagens vazias e itens quebrados."],p:"Pronto quando: há uma área livre para preparo.",e:"Se sobrar energia: limpe atrás dos eletrodomésticos pequenos ou reorganize o suporte de talheres. Não abra outra área."},
+ {t:"Despensa",s:"Veja o que existe antes de comprar.",a:["Retire vencidos ou danificados.","Agrupe por categoria: grãos, lanches, café.","Coloque os que vencem antes na frente."],p:"Pronto quando: cada categoria tem uma zona.",e:"Se sobrar energia: etiquete potes sem identificação e anote validades próximas em um papel visível. Não abra outra área."},
+ {t:"Geladeira",s:"Reduza desperdício visível.",a:["Descarte alimentos impróprios seguindo regras locais.","Agrupe por tipo e deixe sobras visíveis.","Anote três itens a consumir primeiro."],p:"Pronto quando: as prateleiras fecham sem empilhar demais.",e:"Se sobrar energia: passe um pano nas prateleiras vazias e reorganize as gavetas por categoria. Não abra outra área."},
+ {t:"Banheiro",s:"Mantenha acessível só o que é usado.",a:["Retire embalagens vazias e vencidos.","Separe estoque do uso diário.","Guarde químicos fora do alcance de crianças e pets."],p:"Pronto quando: bancada e piso ficam livres.",e:"Se sobrar energia: troque a toalha de rosto ou limpe o suporte da escova de dentes. Não abra outra área."},
+ {t:"Quarto",s:"Proteja o espaço de descanso.",a:["Retire roupas, copos e papéis.","Libere a passagem ao redor da cama.","Escolha um lugar para roupa usada."],p:"Pronto quando: a cama pode ser feita sem mover pilhas.",e:"Se sobrar energia: vire o colchão ou troque a roupa de cama. Não abra outra área."},
+ {t:"Criado-mudo e cômoda",s:"Reduza lembretes ao lado da cama.",a:["Esvazie uma gaveta de cada vez.","Mantenha só itens ligados ao sono e à manhã.","Leve medicamentos ao local seguro definido."],p:"Pronto quando: o tampo tem no máximo cinco itens.",e:"Se sobrar energia: reorganize o interior da primeira gaveta ou troque o forro. Não abra outra área."},
+ {t:"Guarda-roupa I",s:"Decida pelas roupas de cima.",a:["Separe camisetas, camisas e casacos.","Doe o que não serve à vida atual e está em bom estado.","Mantenha categorias juntas."],p:"Pronto quando: os cabides deslizam sem força.",e:"Se sobrar energia: vire os cabides na mesma direção e separe peças para lavagem a seco. Não abra outra área."},
+ {t:"Guarda-roupa II",s:"Decida pelas roupas de baixo.",a:["Revise calças, saias, shorts e roupas íntimas.","Retire peças sem condição de uso.","Defina limite físico por gaveta."],p:"Pronto quando: as gavetas abrem sem comprimir peças.",e:"Se sobrar energia: dobre as peças mantidas pelo mesmo método e etiquete a gaveta por categoria. Não abra outra área."},
+ {t:"Sapatos e acessórios",s:"Enxergue suas escolhas reais.",a:["Forme pares e descarte itens sem conserto viável.","Doe os bons que você não usa.","Agrupe bolsas, cintos e joias por categoria."],p:"Pronto quando: tudo cabe no espaço definido.",e:"Se sobrar energia: limpe a sola dos pares mantidos ou separe um par para consertar. Não abra outra área."},
+ {t:"Lavanderia e limpeza",s:"Torne a manutenção mais fácil.",a:["Retire frascos vazios e panos sem uso.","Agrupe produtos por função.","Mantenha rótulos e embalagens originais."],p:"Pronto quando: os produtos ficam seguros e visíveis.",e:"Se sobrar energia: limpe o filtro da máquina ou organize o estoque de sabão em um recipiente visível. Não abra outra área."},
+ {t:"Papéis",s:"Transforme pilha em decisões.",a:["Separe: agir, arquivar, descartar.","Anote prazos num único lugar.","Triture documentos sensíveis quando necessário."],p:"Pronto quando: nenhum papel fica sem categoria.",e:"Se sobrar energia: digitalize um documento importante ou etiquete a pasta de arquivo morto. Não abra outra área."},
+ {t:"Home office",s:"Deixe o trabalho começar rápido.",a:["Libere teclado e área de escrita.","Guarde cabos e materiais por uso.","Crie uma bandeja de entrada com limite."],p:"Pronto quando: você começa uma tarefa em 60 segundos.",e:"Se sobrar energia: organize os cabos com uma braçadeira ou limpe a tela do monitor. Não abra outra área."},
+ {t:"Itens digitais",s:"Organize o que também ocupa atenção.",a:["Apague 20 capturas ou arquivos inúteis.","Crie pastas: Agir, Arquivar, Pessoal.","Cancele cinco notificações sem valor."],p:"Pronto quando: a tela inicial mostra apenas essenciais.",e:"Se sobrar energia: esvazie a lixeira do computador ou organize a pasta de downloads. Não abra outra área."},
+ {t:"Crianças, pets ou hobby",s:"Dê limites gentis às coleções.",a:["Escolha uma categoria pequena.","Separe incompletos, quebrados ou inadequados.","Use cestos com rótulos simples."],p:"Pronto quando: guardar leva menos de cinco minutos.",e:"Se sobrar energia: separe peças quebradas para descarte e etiquete a caixa que ficou. Não abra outra área."},
+ {t:"Remédios e autocuidado",s:"Priorize segurança e validade.",a:["Separe vencidos sem jogar no vaso ou na pia.","Procure ponto de coleta autorizado.","Mantenha longe de crianças, calor e umidade."],p:"Pronto quando: os itens estão seguros e identificados.",e:"Se sobrar energia: anote em um papel visível as validades mais próximas do vencimento. Não abra outra área."},
+ {t:"Depósito, garagem ou varanda",s:"Abra uma rota de acesso.",a:["Comece pelo chão e pela passagem.","Agrupe ferramentas, sazonais e manutenção.","Isole itens perigosos e consulte o descarte local."],p:"Pronto quando: existe um corredor livre e seguro.",e:"Se sobrar energia: varra o chão liberado ou etiquete uma caixa que permaneceu no lugar. Não abra outra área."},
+ {t:"Objetos afetivos",s:"Escolha memórias com intenção.",a:["Limite a sessão a uma caixa.","Escolha representantes, não a coleção inteira.","Fotografe o que pode seguir."],p:"Pronto quando: a seleção cabe no recipiente definido.",e:"Se sobrar energia: fotografe os itens guardados ou escreva uma linha sobre o motivo de cada um. Não abra outra área."},
+ {t:"Revisão da casa",s:"Feche a jornada e proteja o ganho.",a:["Recolha itens fora de endereço.","Retire todas as sacolas de saída.","Escolha três sistemas para ajustar na próxima semana."],p:"Pronto quando: a casa funciona melhor do que no Dia 1.",e:"Se sobrar energia: fotografe o resultado geral e marque no calendário a data da sua próxima revisão mensal."}
+];
+var FASES=[
+ {n:"Preparar",m:2,d:"Abra a janela se possível, pegue as três caixas e escolha uma superfície pequena."},
+ {n:"Triar 3X",m:12,d:"Um item por vez: Manter, Doar ou Lixo. Nada de criar pilhas extras."},
+ {n:"Devolver",m:4,d:"Leve apenas o que ficou para um endereço simples e visível."},
+ {n:"Fechar",m:2,d:"Retire o lixo, deixe a doação junto à saída e registre uma vitória."}
+];
+var FASES2=[
+ {n:"Devolver",m:2,d:"Retorne itens visíveis aos seus endereços."},
+ {n:"Bancada",m:2,d:"Libere a pia ou a bancada principal."},
+ {n:"Lixo",m:2,d:"Recolha lixo e reciclagem."},
+ {n:"Amanhã",m:2,d:"Prepare algo para a manhã seguinte."},
+ {n:"Saída",m:2,d:"Leve a sacola de saída para perto da porta."}
+];
+var SEMANAL=[[15,"Roupas: recolher, separar e iniciar um ciclo."],[10,"Banheiro: superfícies, vaso e reposição."],[10,"Cozinha: geladeira rápida e bancada."],[10,"Papéis: agir, arquivar ou descartar."],[10,"Pisos de maior circulação."],[5,"Doação e reciclagem: programar a saída."]];
+var MENSAL=["Onde os objetos estão se acumulando?","O endereço atual fica perto do lugar de uso?","O que pode sair de casa nesta semana?","Qual sistema simplifico para a próxima vez?"];
+
+/* ============ 2. GUARDAR DADOS (com plano B) ============ */
+var CHAVE="casaEmOrdem.v1", memoria={}, temLocal=(function(){try{localStorage.setItem("_t","1");localStorage.removeItem("_t");return true}catch(e){return false}})();
+function ler(){try{if(temLocal){var s=localStorage.getItem(CHAVE);return s?JSON.parse(s):null}}catch(e){}return memoria[CHAVE]||null}
+function gravar(){try{var s=JSON.stringify(E);if(temLocal)localStorage.setItem(CHAVE,s);else memoria[CHAVE]=JSON.parse(s)}catch(e){}}
+var E=ler()||{atual:1,dias:{},antes:{dif:"",area:"",sentir:"",nota:null},depois:{nota:null,txt:""},semanal:[],mensal:{}};
+function dia(n){if(!E.dias[n])E.dias[n]={ok:false,tarefas:[false,false,false],manter:0,doar:0,lixo:0,saiu:false,nota:""};return E.dias[n]}
+
+/* ============ 3. TELAS ============ */
+var botoesNav=document.querySelectorAll(".nav-in button");
+for(var i=0;i<botoesNav.length;i++)botoesNav[i].addEventListener("click",function(){
+  for(var j=0;j<botoesNav.length;j++)botoesNav[j].classList.remove("on");
+  this.classList.add("on");
+  var t=this.getAttribute("data-tela"),telas=document.querySelectorAll(".tela");
+  for(var k=0;k<telas.length;k++)telas[k].classList.remove("on");
+  document.getElementById("tela-"+t).classList.add("on");
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+/* ============ 4. SOM ============ */
+var ctx=null;
+function bip(alto){
+  try{
+    if(!ctx){var A=window.AudioContext||window.webkitAudioContext;if(!A)return;ctx=new A()}
+    var o=ctx.createOscillator(),g=ctx.createGain();
+    o.type="sine";o.frequency.value=alto?880:560;
+    g.gain.setValueAtTime(0.0001,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.25,ctx.currentTime+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+(alto?0.9:0.35));
+    o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+(alto?0.95:0.4));
+  }catch(e){}
+}
+function vibra(ms){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
+
+/* ============ 5. MOTOR DE TIMER ============ */
+function Timer(cfg){
+  var T=this;
+  T.fases=cfg.fases;T.total=0;
+  for(var i=0;i<T.fases.length;i++)T.total+=T.fases[i].m*60;
+  T.passado=0;T.rodando=false;T.fim=0;T.tick=null;T.cfg=cfg;
+  T.montaBlocos=function(){
+    var h="";
+    for(var i=0;i<T.fases.length;i++)h+='<div class="bloco" data-i="'+i+'"><i><b></b></i><span>'+T.fases[i].n+'</span></div>';
+    cfg.blocos.innerHTML=h;
+  };
+  T.faseAtual=function(){
+    var acc=0;
+    for(var i=0;i<T.fases.length;i++){var d=T.fases[i].m*60;if(T.passado<acc+d)return{i:i,dentro:T.passado-acc,dur:d};acc+=d}
+    return{i:T.fases.length-1,dentro:T.fases[T.fases.length-1].m*60,dur:T.fases[T.fases.length-1].m*60};
+  };
+  T.pinta=function(){
+    var resta=Math.max(0,T.total-T.passado);
+    var mm=Math.floor(resta/60),ss=resta%60;
+    cfg.relogio.textContent=(mm<10?"0":"")+mm+":"+(ss<10?"0":"")+ss;
+    var f=T.faseAtual(),bs=cfg.blocos.querySelectorAll(".bloco");
+    for(var i=0;i<bs.length;i++){
+      bs[i].className="bloco"+(i<f.i?" feito":i===f.i?" ativo":"");
+      var b=bs[i].querySelector("b");
+      b.style.width=i<f.i?"100%":i===f.i?(Math.min(1,f.dentro/f.dur)*100)+"%":"0%";
+    }
+    if(cfg.fase)cfg.fase.textContent=T.passado>=T.total?"Sessão concluída":(T.rodando?T.fases[f.i].n:(T.passado>0?"Em pausa · "+T.fases[f.i].n:cfg.inicial));
+    if(cfg.desc)cfg.desc.textContent=T.passado>=T.total?"Retire a sacola de saída e registre sua vitória abaixo.":T.fases[f.i].d;
+    if(cfg.anel){var C=590.6;cfg.anel.setAttribute("stroke-dashoffset",C-C*(T.passado/T.total))}
+    cfg.botao.textContent=T.passado>=T.total?"Nova sessão":(T.rodando?"Pausar":(T.passado>0?"Continuar":cfg.rotulo));
+  };
+  T.roda=function(){
+    if(!T.rodando)return;
+    var resta=Math.max(0,Math.round((T.fim-Date.now())/1000));
+    var novo=T.total-resta;
+    var antes=T.faseAtual().i;T.passado=novo;var agora=T.faseAtual().i;
+    if(agora!==antes&&novo<T.total){bip(false);vibra(120)}
+    if(novo>=T.total){T.passado=T.total;T.rodando=false;clearInterval(T.tick);bip(true);vibra([200,90,200])}
+    T.pinta();
+  };
+  T.alterna=function(){
+    if(T.passado>=T.total){T.passado=0;T.rodando=false;T.pinta();return}
+    if(T.rodando){T.rodando=false;clearInterval(T.tick)}
+    else{T.rodando=true;T.fim=Date.now()+(T.total-T.passado)*1000;bip(false);clearInterval(T.tick);T.tick=setInterval(T.roda,250)}
+    T.pinta();
+  };
+  T.zera=function(){T.rodando=false;clearInterval(T.tick);T.passado=0;T.pinta()};
+  T.montaBlocos();T.pinta();
+  cfg.botao.addEventListener("click",T.alterna);
+  cfg.zerar.addEventListener("click",T.zera);
+}
+var t1=new Timer({fases:FASES,blocos:document.getElementById("blocos"),relogio:document.getElementById("relogio"),fase:document.getElementById("fase"),desc:document.getElementById("faseDesc"),anel:document.getElementById("anel"),botao:document.getElementById("btnTimer"),zerar:document.getElementById("btnZerar"),inicial:"Pronta para começar",rotulo:"Começar a sessão"});
+var t2=new Timer({fases:FASES2,blocos:document.getElementById("blocos2"),relogio:document.getElementById("relogio2"),fase:document.getElementById("fase2"),botao:document.getElementById("btnTimer2"),zerar:document.getElementById("btnZerar2"),inicial:"Toque para iniciar",rotulo:"Começar fechamento"});
+
+/* ============ 6. TELA HOJE ============ */
+function pintaHoje(){
+  var n=E.atual,d=DIAS[n-1],r=dia(n);
+  document.getElementById("diaNum").textContent="DIA "+(n<10?"0":"")+n+" / 21";
+  document.getElementById("diaSemana").textContent=SEMANAS[n<=7?0:n<=14?1:2];
+  document.getElementById("diaTitulo").textContent=d.t;
+  document.getElementById("diaSub").textContent=d.s;
+  document.getElementById("prontoQuando").textContent=d.p;
+  document.getElementById("energia").textContent=d.e;
+  var h="";
+  for(var i=0;i<d.a.length;i++)h+='<div class="tarefa'+(r.tarefas[i]?" ok":"")+'" data-i="'+i+'" role="checkbox" tabindex="0" aria-checked="'+(r.tarefas[i]?"true":"false")+'"><div class="marca-box">'+(r.tarefas[i]?"✓":"")+'</div><div class="txt">'+d.a[i]+'</div></div>';
+  document.getElementById("acoes").innerHTML=h;
+  var ts=document.querySelectorAll("#acoes .tarefa");
+  for(var j=0;j<ts.length;j++){
+    ts[j].addEventListener("click",function(){
+      var k=+this.getAttribute("data-i"),rr=dia(E.atual);
+      rr.tarefas[k]=!rr.tarefas[k];gravar();pintaHoje();
+    });
+    ts[j].addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();this.click()}});
+  }
+  document.getElementById("v-manter").textContent=r.manter;
+  document.getElementById("v-doar").textContent=r.doar;
+  document.getElementById("v-lixo").textContent=r.lixo;
+  var sw=document.getElementById("saiu");
+  sw.className="interruptor"+(r.saiu?" on":"");sw.setAttribute("aria-checked",r.saiu?"true":"false");
+  document.getElementById("nota").value=r.nota||"";
+  document.getElementById("btnConcluir").textContent=r.ok?"Dia "+(n<10?"0":"")+n+" concluído ✓":"Concluir o Dia "+(n<10?"0":"")+n;
+  document.getElementById("btnAnterior").disabled=(n===1);
+  document.getElementById("btnProximo").disabled=(n===21);
+  document.getElementById("btnAnterior").style.opacity=n===1?".4":"1";
+  document.getElementById("btnProximo").style.opacity=n===21?".4":"1";
+  pintaBarra();
+}
+var pms=document.querySelectorAll(".pm button");
+for(var p=0;p<pms.length;p++)pms[p].addEventListener("click",function(){
+  var c=this.getAttribute("data-c"),d=+this.getAttribute("data-d"),r=dia(E.atual);
+  r[c]=Math.max(0,r[c]+d);gravar();pintaHoje();pintaJornada();
+});
+document.getElementById("saiu").addEventListener("click",function(){var r=dia(E.atual);r.saiu=!r.saiu;gravar();pintaHoje();pintaJornada()});
+document.getElementById("saiu").addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();this.click()}});
+document.getElementById("nota").addEventListener("input",function(){dia(E.atual).nota=this.value;gravar()});
+document.getElementById("btnAnterior").addEventListener("click",function(){if(E.atual>1){E.atual--;gravar();t1.zera();pintaHoje();pintaJornada();window.scrollTo({top:0,behavior:"smooth"})}});
+document.getElementById("btnProximo").addEventListener("click",function(){if(E.atual<21){E.atual++;gravar();t1.zera();pintaHoje();pintaJornada();window.scrollTo({top:0,behavior:"smooth"})}});
+document.getElementById("btnConcluir").addEventListener("click",function(){
+  var r=dia(E.atual);r.ok=!r.ok;gravar();
+  if(r.ok){bip(true);vibra(150);if(E.atual<21){E.atual++;t1.zera()}}
+  pintaHoje();pintaJornada();window.scrollTo({top:0,behavior:"smooth"});
+});
+
+/* ============ 7. JORNADA ============ */
+function pintaBarra(){
+  var f=0;for(var i=1;i<=21;i++)if(E.dias[i]&&E.dias[i].ok)f++;
+  document.getElementById("barra").style.width=(f/21*100)+"%";
+  document.getElementById("barraTxt").textContent=f+" de 21";
+  return f;
+}
+function pintaJornada(){
+  var f=pintaBarra(),h="",itens=0,doar=0,saidas=0;
+  for(var i=1;i<=21;i++){
+    var r=E.dias[i];
+    if(r){itens+=r.manter+r.doar+r.lixo;doar+=r.doar;if(r.saiu)saidas++}
+    h+='<div class="cel'+(r&&r.ok?" ok":"")+(i===E.atual?" hoje":"")+'" data-d="'+i+'" role="button" tabindex="0" aria-label="Dia '+i+'">'+i+'</div>';
+  }
+  document.getElementById("grade").innerHTML=h;
+  var cs=document.querySelectorAll("#grade .cel");
+  for(var j=0;j<cs.length;j++){
+    cs[j].addEventListener("click",function(){
+      E.atual=+this.getAttribute("data-d");gravar();t1.zera();pintaHoje();pintaJornada();
+      document.querySelector('.nav-in button[data-tela="hoje"]').click();
+    });
+    cs[j].addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();this.click()}});
+  }
+  document.getElementById("p-dias").textContent=f;
+  document.getElementById("p-itens").textContent=itens;
+  document.getElementById("p-doar").textContent=doar;
+  document.getElementById("p-saidas").textContent=saidas;
+  var c=document.getElementById("comparativo");
+  if(E.antes.nota!==null&&E.depois.nota!==null){
+    var dif=E.depois.nota-E.antes.nota;
+    c.textContent=dif>0?"Você saiu de "+E.antes.nota+" para "+E.depois.nota+". São "+dif+" ponto(s) de casa que apoia sua rotina.":dif===0?"A nota se manteve em "+E.antes.nota+". Reveja o Reset mensal: o problema pode ser o endereço dos objetos.":"A nota caiu de "+E.antes.nota+" para "+E.depois.nota+". Escolha um único sistema para ajustar nesta semana.";
+  } else if(E.antes.nota===null){c.textContent="Preencha a nota de antes para ver a comparação."}
+  else{c.textContent="Sua nota inicial foi "+E.antes.nota+". Volte aqui no fim do Dia 21."}
+}
+function montaNotas(id,quem){
+  var el=document.getElementById(id),h="";
+  for(var i=0;i<=10;i++)h+='<button data-n="'+i+'">'+i+'</button>';
+  el.innerHTML=h;
+  var bs=el.querySelectorAll("button");
+  for(var j=0;j<bs.length;j++){
+    if(quem.nota===j)bs[j].classList.add("sel");
+    bs[j].addEventListener("click",function(){
+      quem.nota=+this.getAttribute("data-n");gravar();
+      var irmaos=el.querySelectorAll("button");
+      for(var k=0;k<irmaos.length;k++)irmaos[k].classList.remove("sel");
+      this.classList.add("sel");pintaJornada();
+    });
+  }
+}
+montaNotas("nota-antes",E.antes);montaNotas("nota-depois",E.depois);
+function liga(id,obj,campo){var el=document.getElementById(id);el.value=obj[campo]||"";el.addEventListener("input",function(){obj[campo]=this.value;gravar()})}
+liga("i-dif",E.antes,"dif");liga("i-area",E.antes,"area");liga("i-sentir",E.antes,"sentir");liga("i-final",E.depois,"txt");
+
+/* ============ 8. ROTINAS ============ */
+function pintaSemanal(){
+  var h="";
+  for(var i=0;i<SEMANAL.length;i++){
+    var ok=E.semanal.indexOf(i)>-1;
+    h+='<div class="lt"><div class="min">'+SEMANAL[i][0]+' min</div><div class="tarefa'+(ok?" ok":"")+'" data-i="'+i+'" style="flex:1;padding:0;border:0" role="checkbox" tabindex="0" aria-checked="'+(ok?"true":"false")+'"><div class="marca-box">'+(ok?"✓":"")+'</div><div class="txt">'+SEMANAL[i][1]+'</div></div></div>';
+  }
+  document.getElementById("semanal").innerHTML=h;
+  var ts=document.querySelectorAll("#semanal .tarefa");
+  for(var j=0;j<ts.length;j++){
+    ts[j].addEventListener("click",function(){
+      var k=+this.getAttribute("data-i"),pos=E.semanal.indexOf(k);
+      if(pos>-1)E.semanal.splice(pos,1);else E.semanal.push(k);
+      gravar();pintaSemanal();
+    });
+    ts[j].addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();this.click()}});
+  }
+}
+pintaSemanal();
+document.getElementById("btnSemanal").addEventListener("click",function(){E.semanal=[];gravar();pintaSemanal()});
+(function(){
+  var el=document.getElementById("mensal"),h="";
+  for(var i=0;i<MENSAL.length;i++)h+='<div class="campo-rotulo">'+MENSAL[i]+'</div><input type="text" id="m'+i+'" placeholder="Sua resposta">';
+  el.innerHTML=h;
+  for(var j=0;j<MENSAL.length;j++)(function(k){
+    var c=document.getElementById("m"+k);c.value=E.mensal["q"+k]||"";
+    c.addEventListener("input",function(){E.mensal["q"+k]=this.value;gravar()});
+  })(j);
+})();
+document.getElementById("btnApagar").addEventListener("click",function(){
+  if(confirm("Apagar todos os seus registros deste aparelho? Isso não pode ser desfeito.")){
+    try{if(temLocal)localStorage.removeItem(CHAVE);else delete memoria[CHAVE]}catch(e){}
+    location.reload();
+  }
+});
+
+/* ============ 9. INÍCIO ============ */
+pintaHoje();pintaJornada();
+</script>
+</body>
+</html>
